@@ -949,19 +949,19 @@ __exportStar(require("./RawData"), exports);
 },{"./Chapter":15,"./ChapterDetails":14,"./Constants":16,"./DynamicUI":32,"./HomeSection":33,"./Languages":34,"./Manga":37,"./MangaTile":35,"./MangaUpdate":36,"./PagedResults":38,"./RawData":39,"./RequestHeaders":40,"./RequestInterceptor":41,"./RequestManager":42,"./RequestObject":43,"./ResponseObject":44,"./SearchField":45,"./SearchRequest":46,"./SourceInfo":47,"./SourceManga":48,"./SourceStateManager":49,"./SourceTag":50,"./TagSection":51,"./TrackedManga":53,"./TrackedMangaChapterReadAction":52,"./TrackerActionQueue":54}],56:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Kiryuu = exports.KiryuuInfo = exports.KIRYUU_DOMAIN = void 0;
+exports.Mangasee = exports.MangaseeInfo = exports.MANGASEE_DOMAIN = void 0;
 const paperback_extensions_common_1 = require("paperback-extensions-common");
 const NepNep_1 = require("../NepNep");
-exports.KIRYUU_DOMAIN = 'https://kiryuu.id';
-exports.KiryuuInfo = {
-    version: '0.0.1',
-    name: 'Kiryuu',
+exports.MANGASEE_DOMAIN = 'https://mangasee123.com';
+exports.MangaseeInfo = {
+    version: '2.2.0',
+    name: 'MangaSee',
     icon: 'icon.png',
-    author: 'Kurob',
-    authorWebsite: 'https://github.com/kurob1993',
-    description: 'Extension that pulls manga from Kiryuu',
-    contentRating: paperback_extensions_common_1.ContentRating.EVERYONE,
-    websiteBaseURL: exports.KIRYUU_DOMAIN,
+    author: 'Daniel Kovalevich',
+    authorWebsite: 'https://github.com/DanielKovalevich',
+    description: 'Extension that pulls manga from MangaSee, includes Advanced Search and Updated manga fetching',
+    contentRating: paperback_extensions_common_1.ContentRating.MATURE,
+    websiteBaseURL: exports.MANGASEE_DOMAIN,
     sourceTags: [
         {
             text: 'Notifications',
@@ -973,13 +973,13 @@ exports.KiryuuInfo = {
         }
     ]
 };
-class Kiryuu extends NepNep_1.NepNep {
+class Mangasee extends NepNep_1.NepNep {
     constructor() {
         super(...arguments);
-        this.baseUrl = 'https://kiryuu.id';
+        this.baseUrl = 'https://mangasee123.com';
     }
 }
-exports.Kiryuu = Kiryuu;
+exports.Mangasee = Mangasee;
 
 },{"../NepNep":57,"paperback-extensions-common":13}],57:[function(require,module,exports){
 "use strict";
