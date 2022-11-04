@@ -19393,8 +19393,9 @@ class Kiryuu extends Madara_1.Madara {
     constructor() {
         super(...arguments);
         this.baseUrl = DOMAIN;
-        this.languageCode = paperback_extensions_common_1.LanguageCode.ENGLISH;
+        this.languageCode = paperback_extensions_common_1.LanguageCode.INDONESIAN;
         this.hasAdvancedSearchPage = true;
+        this.searchMangaSelector = 'div.listupd';
     }
 }
 exports.Kiryuu = Kiryuu;
