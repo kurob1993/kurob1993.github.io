@@ -340,6 +340,6 @@
     ]
   },
   "footer": {
-    "copyright": "© 2024 Okuru.id. All Rights Reserved."
+    "copyright": "© {year} Okuru.id. All Rights Reserved."
   }
 } 

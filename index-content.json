@@ -44,9 +44,10 @@
       "id": "Halo, Saya Kurob"
     },
     "description": {
-      "en": "I'm from Indonesia with 8+ years of experience as a full-stack web developer. Currently at PT Krakatau IT and available for freelance projects. I build dynamic, responsive, and robust web solutions.",
-      "id": "Saya dari Indonesia dengan pengalaman 8+ tahun sebagai full-stack web developer. Saat ini bekerja di PT Krakatau IT dan tersedia untuk proyek freelance. Saya membangun solusi web yang dinamis, responsif, dan tangguh."
+      "en": "I'm from Indonesia with {years}+ years of experience as a full-stack web developer. Currently at PT Krakatau IT and available for freelance projects. I build dynamic, responsive, and robust web solutions.",
+      "id": "Saya dari Indonesia dengan pengalaman {years}+ tahun sebagai full-stack web developer. Saat ini bekerja di PT Krakatau IT dan tersedia untuk proyek freelance. Saya membangun solusi web yang dinamis, responsif, dan tangguh."
     },
+    "startYear": 2016,
     "highlightedRole": {
       "en": "full-stack web developer",
       "id": "full-stack web developer"
@@ -378,7 +379,7 @@
     }
   },
   "footer": {
-    "copyright": "© 2024 Okuru.id. All Rights Reserved."
+    "copyright": "© {year} Okuru.id. All Rights Reserved."
   },
   "profile": {
     "image": "kurob.jpg",

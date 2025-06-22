@@ -47,9 +47,10 @@ class ContentLoader {
             hero: {
                 title: { en: "Hi, I'm Kurob", id: "Halo, Saya Kurob" },
                 description: { 
-                    en: "I'm from Indonesia with 8+ years of experience as a full-stack web developer. Currently at PT Krakatau IT and available for freelance projects. I build dynamic, responsive, and robust web solutions.",
-                    id: "Saya dari Indonesia dengan pengalaman 8+ tahun sebagai full-stack web developer. Saat ini bekerja di PT Krakatau IT dan tersedia untuk proyek freelance. Saya membangun solusi web yang dinamis, responsif, dan tangguh."
+                    en: "I'm from Indonesia with {years}+ years of experience as a full-stack web developer. Currently at PT Krakatau IT and available for freelance projects. I build dynamic, responsive, and robust web solutions.",
+                    id: "Saya dari Indonesia dengan pengalaman {years}+ tahun sebagai full-stack web developer. Saat ini bekerja di PT Krakatau IT dan tersedia untuk proyek freelance. Saya membangun solusi web yang dinamis, responsif, dan tangguh."
                 },
+                startYear: 2016,
                 highlightedRole: { en: "full-stack web developer", id: "full-stack web developer" },
                 cta: { en: "Contact Me", id: "Hubungi Saya" }
             },
@@ -82,6 +83,9 @@ class ContentLoader {
                     message: { placeholder: { en: "Your Message", id: "Pesan Anda" } },
                     submit: { en: "Send Message", id: "Kirim Pesan" }
                 }
+            },
+            footer: {
+                copyright: "© {year} Okuru.id. All Rights Reserved."
             }
         };
     }
@@ -126,6 +130,12 @@ class ContentLoader {
             return element?.en || element || '';
         }
         return element[this.currentLanguage];
+    }
+
+    calculateExperienceYears() {
+        if (!this.content.hero.startYear) return 8; // fallback
+        const currentYear = new Date().getFullYear();
+        return currentYear - this.content.hero.startYear;
     }
 
     renderContent() {
@@ -175,9 +185,11 @@ class ContentLoader {
         if (descElement) {
             const description = this.getText(this.content.hero.description);
             const highlightedRole = this.getText(this.content.hero.highlightedRole);
+            const experienceYears = this.calculateExperienceYears();
             
-            // Replace the highlighted role in the description
-            const updatedDescription = description.replace(
+            // Replace the years placeholder and highlighted role in the description
+            let updatedDescription = description.replace(/{years}/g, experienceYears);
+            updatedDescription = updatedDescription.replace(
                 /full-stack web developer/g, 
                 `<span class="role-highlight">${highlightedRole}</span>`
             );
@@ -414,7 +426,9 @@ class ContentLoader {
     renderFooter() {
         const footerElement = document.querySelector('footer p');
         if (footerElement && this.content.footer) {
-            footerElement.textContent = this.content.footer.copyright;
+            const currentYear = new Date().getFullYear();
+            const copyright = this.content.footer.copyright.replace(/{year}/g, currentYear);
+            footerElement.textContent = copyright;
         }
     }
 }
