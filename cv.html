@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurob - Full Stack Developer CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @media print {
+            body { margin: 0; }
+            .no-print { display: none !important; }
+            .print-break { page-break-before: always; }
+            .cv-container { 
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 20px !important;
+            }
+        }
+        
+        .cv-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            color: #333;
+        }
+        
+        .section-title {
+            border-bottom: 2px solid #10b981;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .skill-item {
+            background: #f3f4f6;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 4px;
+            display: inline-block;
+        }
+        
+        .project-item {
+            border-left: 3px solid #10b981;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .contact-info i {
+            width: 20px;
+            margin-right: 10px;
+            color: #10b981;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="no-print bg-white shadow-lg p-4 mb-6">
+        <div class="max-w-800px mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">CV Preview</h1>
+            <div class="space-x-4">
+                <button onclick="window.print()" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                    <i class="fas fa-print mr-2"></i>Print CV
+                </button>
+                <button onclick="window.close()" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors">
+                    <i class="fas fa-times mr-2"></i>Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cv-container bg-white shadow-lg p-8">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Kurob</h1>
+            <h2 class="text-2xl text-green-600 mb-4">Full Stack Developer</h2>
+            <div class="text-gray-600">
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <span>kurob@okuru.id</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cilegon, Banten, Indonesia</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fab fa-github"></i>
+                    <span>github.com/kurob1993</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fab fa-linkedin"></i>
+                    <span>linkedin.com/in/kurob</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="mb-8">
+            <h3 class="section-title text-xl">Professional Summary</h3>
+            <p class="text-gray-700 leading-relaxed">
+                Experienced Full Stack Developer with 9+ years of expertise in web development, 
+                currently working at PT Krakatau IT. Specialized in building scalable, responsive, 
+                and robust web applications using modern technologies. Proven track record in 
+                delivering high-quality solutions for enterprise clients including PT Danareksa 
+                and CIMB Niaga. Passionate about clean code, performance optimization, and 
+                staying updated with the latest industry trends.
+            </p>
+        </div>
+
+        <!-- Experience -->
+        <div class="mb-8">
+            <h3 class="section-title text-xl">Professional Experience</h3>
+            
+            <div class="project-item">
+                <h4 class="font-bold text-lg text-gray-800">Full Stack Developer</h4>
+                <p class="text-green-600 font-medium">PT Krakatau IT</p>
+                <p class="text-gray-600 text-sm">2016 - Present</p>
+                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                    <li>Develop and maintain enterprise-level web applications</li>
+                    <li>Lead frontend development for hospital management systems</li>
+                    <li>Implement scalable solutions using modern frameworks</li>
+                    <li>Collaborate with cross-functional teams for project delivery</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h4 class="font-bold text-lg text-gray-800">Freelance Full Stack Developer</h4>
+                <p class="text-green-600 font-medium">Self-Employed</p>
+                <p class="text-gray-600 text-sm">2016 - Present</p>
+                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                    <li>Deliver custom web solutions for various clients</li>
+                    <li>Specialize in Laravel, React, and modern JavaScript</li>
+                    <li>Provide technical consulting and project management</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Key Projects -->
+        <div class="mb-8">
+            <h3 class="section-title text-xl">Key Projects</h3>
+            
+            <div class="project-item">
+                <h4 class="font-bold text-lg text-gray-800">Tenant Management System - PT Danareksa</h4>
+                <p class="text-gray-700 mt-2">
+                    Designed and implemented a scalable tenant management system, focusing on 
+                    efficient data handling and robust performance. Technologies: Laravel, Sql Server.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h4 class="font-bold text-lg text-gray-800">New Krakatau Hospital System</h4>
+                <p class="text-gray-700 mt-2">
+                    Led frontend development for an advanced hospital management system, improving 
+                    user experience and operational efficiency. Technologies: Vue.js, Node.js, PostgreSQL, Java, Spring Boot.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h4 class="font-bold text-lg text-gray-800">CIMB Niaga</h4>
+                <p class="text-gray-700 mt-2">
+                    Performed full-stack development to enhance the application, 
+                    focusing on improved functionality and UI design.
+                </p>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="mb-8">
+            <h3 class="section-title text-xl">Technical Skills</h3>
+            
+            <div class="mb-6">
+                <h4 class="font-bold text-lg text-gray-800 mb-3">Programming Languages</h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-item">PHP</span>
+                    <span class="skill-item">JavaScript</span>
+                    <span class="skill-item">TypeScript</span>
+                    <span class="skill-item">Dart</span>
+                    <span class="skill-item">HTML/CSS</span>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="font-bold text-lg text-gray-800 mb-3">Frameworks & Libraries</h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-item">Laravel</span>
+                    <span class="skill-item">React</span>
+                    <span class="skill-item">Vue.js</span>
+                    <span class="skill-item">Node.js</span>
+                    <span class="skill-item">Express.js</span>
+                    <span class="skill-item">Tailwind CSS</span>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="font-bold text-lg text-gray-800 mb-3">Databases</h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-item">MySQL</span>
+                    <span class="skill-item">PostgreSQL</span>
+                    <span class="skill-item">SQL Server</span>
+                    <span class="skill-item">Redis</span>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="font-bold text-lg text-gray-800 mb-3">Tools & Technologies</h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-item">Docker</span>
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">GCP</span>
+                    <span class="skill-item">CI/CD</span>
+                    <span class="skill-item">RESTful APIs</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="mb-8">
+            <h3 class="section-title text-xl">Education</h3>
+            <div class="project-item">
+                <h4 class="font-bold text-lg text-gray-800">Bachelor's Degree in Computer Science</h4>
+                <p class="text-green-600 font-medium">STIKOM AL-KHAIRIYAH CILEGON</p>
+                <p class="text-gray-600 text-sm">2013 - 2017</p>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <!-- <div class="mb-8">
+            <h3 class="section-title text-xl">Certifications</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li>AWS Certified Developer Associate</li>
+                <li>Laravel Certified Developer</li>
+                <li>React Developer Certification</li>
+            </ul>
+        </div> -->
+
+        <!-- Languages -->
+        <div class="mb-8">
+            <h3 class="section-title text-xl">Languages</h3>
+            <div class="flex flex-wrap gap-4">
+                <div>
+                    <span class="font-bold text-gray-800">Indonesian:</span>
+                    <span class="text-gray-700">Native</span>
+                </div>
+                <div>
+                    <span class="font-bold text-gray-800">English:</span>
+                    <span class="text-gray-700">Professional Working Proficiency</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto print when page loads
+        window.onload = function() {
+            // Small delay to ensure page is fully loaded
+            setTimeout(() => {
+                window.print();
+            }, 500);
+        };
+    </script>
+</body>
+</html> 

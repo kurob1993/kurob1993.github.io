@@ -42,7 +42,15 @@ class ContentLoader {
                     { en: "Skills", id: "Keahlian" },
                     { en: "Contact", id: "Kontak" }
                 ],
-                downloadCv: { en: "Download CV", id: "Unduh CV" }
+                downloadCv: { 
+                    en: "Download CV", 
+                    id: "Unduh CV",
+                    file: "cv.html",
+                    filename: {
+                        en: "Kurob-FullStack-Developer-CV.html",
+                        id: "Kurob-FullStack-Developer-CV.html"
+                    }
+                }
             },
             hero: {
                 title: { en: "Hi, I'm Kurob", id: "Halo, Saya Kurob" },
@@ -166,11 +174,64 @@ class ContentLoader {
             }
         });
 
-        // Update download CV button
+        // Update download CV button and add download functionality
         const downloadCvBtn = document.querySelector('a[href="#download-cv"]');
         if (downloadCvBtn) {
             downloadCvBtn.textContent = this.getText(this.content.navigation.downloadCv);
+            downloadCvBtn.href = 'javascript:void(0)';
+            downloadCvBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.downloadCV();
+            });
         }
+    }
+
+    downloadCV() {
+        const cvInfo = this.content.navigation.downloadCv;
+        const filePath = cvInfo.file;
+        
+        // Open CV in new tab
+        const newWindow = window.open(filePath, '_blank');
+        
+        if (newWindow) {
+            // Show success message
+            this.showDownloadMessage();
+        } else {
+            // Show error message if popup is blocked
+            this.showErrorMessage();
+        }
+    }
+
+    showDownloadMessage() {
+        // Create a temporary success message
+        const message = document.createElement('div');
+        message.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+        message.textContent = this.currentLanguage === 'id' ? 'CV dibuka di tab baru!' : 'CV opened in new tab!';
+        
+        document.body.appendChild(message);
+        
+        // Remove message after 3 seconds
+        setTimeout(() => {
+            if (message.parentNode) {
+                message.parentNode.removeChild(message);
+            }
+        }, 3000);
+    }
+
+    showErrorMessage() {
+        // Create a temporary error message
+        const message = document.createElement('div');
+        message.className = 'fixed top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+        message.textContent = this.currentLanguage === 'id' ? 'Popup diblokir! Silakan izinkan popup untuk melihat CV.' : 'Popup blocked! Please allow popups to view CV.';
+        
+        document.body.appendChild(message);
+        
+        // Remove message after 5 seconds
+        setTimeout(() => {
+            if (message.parentNode) {
+                message.parentNode.removeChild(message);
+            }
+        }, 5000);
     }
 
     renderHero() {

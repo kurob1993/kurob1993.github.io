@@ -35,7 +35,12 @@
     ],
     "downloadCv": {
       "en": "Download CV",
-      "id": "Unduh CV"
+      "id": "Unduh CV",
+      "file": "cv.html",
+      "filename": {
+        "en": "Kurob-FullStack-Developer-CV.html",
+        "id": "Kurob-FullStack-Developer-CV.html"
+      }
     }
   },
   "hero": {

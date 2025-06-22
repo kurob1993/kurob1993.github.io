@@ -8,6 +8,7 @@ Portfolio website untuk Kurob, seorang Full-Stack Developer dari Indonesia. Webs
 kurob1993.github.io/
 ├── index.html              # File HTML utama
 ├── blog.html               # Halaman blog terpisah
+├── cv.html                 # Halaman CV dengan auto-print
 ├── index-content.json      # Konten untuk halaman utama
 ├── blog-content.json       # Konten khusus untuk halaman blog
 ├── content-loader.js       # JavaScript untuk memuat konten halaman utama
@@ -27,6 +28,7 @@ kurob1993.github.io/
 - **Category Filtering**: Filter artikel berdasarkan kategori
 - **Load More**: Pagination dengan tombol "Load More"
 - **Separated Content**: Konten halaman utama dan blog dipisahkan untuk kemudahan maintenance
+- **CV Download**: Fungsi download CV dengan notifikasi sukses
 
 ## Cara Menggunakan
 
@@ -167,11 +169,33 @@ Untuk mengubah link sosial media, edit `index-content.json`:
 }
 ```
 
+### 7. Mengatur Download CV
+
+Untuk mengatur fungsi download CV, edit `index-content.json`:
+
+```json
+{
+  "navigation": {
+    "downloadCv": {
+      "en": "Download CV",
+      "id": "Unduh CV",
+      "file": "cv.html",
+      "filename": {
+        "en": "Kurob-FullStack-Developer-CV.html",
+        "id": "Kurob-FullStack-Developer-CV.html"
+      }
+    }
+  }
+}
+```
+
+Untuk mengubah konten CV, edit file `cv.html`. CV akan otomatis membuka dialog print saat halaman dibuka.
+
 ## Struktur JSON
 
 ### index-content.json (Halaman Utama)
 - `meta`: Meta information (title, description, language)
-- `navigation`: Menu navigasi dan brand
+- `navigation`: Menu navigasi, brand, dan download CV
 - `hero`: Section hero dengan title, description, dan social links
 - `projects`: Proyek-proyek yang ditampilkan
 - `blog`: Preview artikel blog (3 artikel terbaru)
@@ -198,9 +222,15 @@ Website memiliki halaman blog terpisah (`blog.html`) dengan fitur:
 ### Fitur Blog
 - **Dynamic Category Filtering**: Filter artikel berdasarkan kategori yang didefinisikan di JSON
 - **Load More**: Pagination dengan tombol "Load More" untuk memuat artikel tambahan
-- **Responsive Grid**: Layout grid yang responsif untuk berbagai ukuran layar
-- **Multi-language**: Dukungan bahasa Indonesia dan Inggris
-- **Content Management**: Semua konten blog dikelola melalui `blog-content.json`
+- **Multi-language Support**: Dukungan bahasa Indonesia dan Inggris
+- **Responsive Design**: Desain responsif dengan Tailwind CSS
+
+### Fitur CV Download
+- **HTML CV Page**: CV ditampilkan dalam format HTML yang responsif dan print-friendly
+- **Auto Print**: CV akan otomatis membuka dialog print saat halaman dibuka
+- **New Tab**: CV dibuka di tab baru untuk pengalaman yang lebih baik
+- **Print Controls**: Tombol print dan close tersedia di halaman CV
+- **Customizable Content**: Konten CV dapat dengan mudah diedit di file `cv.html`
 
 ### Kategori Blog (Dapat Dikustomisasi)
 - **All Posts**: Semua artikel
