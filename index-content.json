@@ -5,7 +5,7 @@
     "language": "id"
   },
   "navigation": {
-    "brand": "Okuru.id",
+    "brand": "Okuru.idddd",
     "menu": [
       {
         "id": "projects",
@@ -197,69 +197,6 @@
           "id": "JavaScript"
         },
         "categorySlug": "javascript",
-        "url": "#"
-      },
-      {
-        "title": {
-          "en": "Advanced Laravel Eloquent Relationships",
-          "id": "Relasi Eloquent Laravel Lanjutan"
-        },
-        "excerpt": {
-          "en": "Deep dive into Laravel Eloquent relationships, including polymorphic relationships and advanced querying techniques for complex data structures.",
-          "id": "Mendalami relasi Laravel Eloquent, termasuk relasi polimorfik dan teknik querying lanjutan untuk struktur data yang kompleks."
-        },
-        "date": "2024-01-20",
-        "readTime": {
-          "en": "15 min read",
-          "id": "15 menit baca"
-        },
-        "category": {
-          "en": "Laravel",
-          "id": "Laravel"
-        },
-        "categorySlug": "laravel",
-        "url": "#"
-      },
-      {
-        "title": {
-          "en": "React Performance Optimization Techniques",
-          "id": "Teknik Optimasi Performa React"
-        },
-        "excerpt": {
-          "en": "Learn how to optimize React applications for better performance using React.memo, useMemo, useCallback, and other optimization techniques.",
-          "id": "Pelajari cara mengoptimalkan aplikasi React untuk performa yang lebih baik menggunakan React.memo, useMemo, useCallback, dan teknik optimasi lainnya."
-        },
-        "date": "2024-01-18",
-        "readTime": {
-          "en": "12 min read",
-          "id": "12 menit baca"
-        },
-        "category": {
-          "en": "React",
-          "id": "React"
-        },
-        "categorySlug": "react",
-        "url": "#"
-      },
-      {
-        "title": {
-          "en": "Docker Compose for Local Development",
-          "id": "Docker Compose untuk Pengembangan Lokal"
-        },
-        "excerpt": {
-          "en": "Set up a complete development environment using Docker Compose with multiple services, databases, and development tools for efficient local development.",
-          "id": "Siapkan lingkungan pengembangan lengkap menggunakan Docker Compose dengan berbagai layanan, database, dan alat pengembangan untuk pengembangan lokal yang efisien."
-        },
-        "date": "2024-01-12",
-        "readTime": {
-          "en": "10 min read",
-          "id": "10 menit baca"
-        },
-        "category": {
-          "en": "Docker",
-          "id": "Docker"
-        },
-        "categorySlug": "docker",
         "url": "#"
       }
     ]

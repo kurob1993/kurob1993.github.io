@@ -6,26 +6,33 @@ Portfolio website untuk Kurob, seorang Full-Stack Developer dari Indonesia. Webs
 
 ```
 kurob1993.github.io/
-├── index.html          # File HTML utama
-├── content.json        # File konten dalam format JSON
-├── content-loader.js   # JavaScript untuk memuat dan menampilkan konten
-├── kurob.jpg          # Gambar profil
-└── README.md          # Dokumentasi ini
+├── index.html              # File HTML utama
+├── blog.html               # Halaman blog terpisah
+├── index-content.json      # Konten untuk halaman utama
+├── blog-content.json       # Konten khusus untuk halaman blog
+├── content-loader.js       # JavaScript untuk memuat konten halaman utama
+├── blog-loader.js          # JavaScript khusus untuk halaman blog
+├── kurob.jpg              # Gambar profil
+└── README.md              # Dokumentasi ini
 ```
 
 ## Fitur
 
-- **Content-Driven**: Konten dipisahkan dari HTML dan disimpan dalam file JSON
+- **Content-Driven**: Konten dipisahkan dari HTML dan disimpan dalam file JSON terpisah
 - **Multi-language Support**: Dukungan bahasa Indonesia dan Inggris
 - **Responsive Design**: Desain responsif dengan Tailwind CSS
 - **Glassmorphism UI**: Efek visual modern dengan glassmorphism
 - **Interactive Elements**: Swiper carousel, language switcher, dan animasi
+- **Blog System**: Halaman blog terpisah dengan fitur filtering dan pagination
+- **Category Filtering**: Filter artikel berdasarkan kategori
+- **Load More**: Pagination dengan tombol "Load More"
+- **Separated Content**: Konten halaman utama dan blog dipisahkan untuk kemudahan maintenance
 
 ## Cara Menggunakan
 
-### 1. Mengubah Konten
+### 1. Mengubah Konten Halaman Utama
 
-Untuk mengubah konten website, edit file `content.json`:
+Untuk mengubah konten halaman utama, edit file `index-content.json`:
 
 ```json
 {
@@ -42,9 +49,50 @@ Untuk mengubah konten website, edit file `content.json`:
 }
 ```
 
-### 2. Menambah Proyek Baru
+### 2. Mengubah Konten Blog
 
-Untuk menambah proyek baru, tambahkan ke array `projects.items`:
+Untuk mengubah konten blog, edit file `blog-content.json`:
+
+```json
+{
+  "blog": {
+    "categories": [
+      {
+        "slug": "web-development",
+        "en": "Web Development",
+        "id": "Pengembangan Web"
+      }
+    ],
+    "posts": [
+      {
+        "title": {
+          "en": "New Blog Post Title",
+          "id": "Judul Artikel Blog Baru"
+        },
+        "excerpt": {
+          "en": "Blog post excerpt in English",
+          "id": "Ringkasan artikel blog dalam bahasa Indonesia"
+        },
+        "date": "2024-01-25",
+        "readTime": {
+          "en": "5 min read",
+          "id": "5 menit baca"
+        },
+        "category": {
+          "en": "Web Development",
+          "id": "Pengembangan Web"
+        },
+        "categorySlug": "web-development",
+        "url": "#"
+      }
+    ]
+  }
+}
+```
+
+### 3. Menambah Proyek Baru
+
+Untuk menambah proyek baru, tambahkan ke array `projects.items` di `index-content.json`:
 
 ```json
 {
@@ -65,9 +113,27 @@ Untuk menambah proyek baru, tambahkan ke array `projects.items`:
 }
 ```
 
-### 3. Menambah Teknologi Baru
+### 4. Menambah Kategori Blog Baru
 
-Untuk menambah teknologi baru di section Skills:
+Untuk menambah kategori blog baru, tambahkan ke array `blog.categories` di `blog-content.json`:
+
+```json
+{
+  "blog": {
+    "categories": [
+      {
+        "slug": "new-category",
+        "en": "New Category",
+        "id": "Kategori Baru"
+      }
+    ]
+  }
+}
+```
+
+### 5. Menambah Teknologi Baru
+
+Untuk menambah teknologi baru di section Skills, edit `index-content.json`:
 
 ```json
 {
@@ -83,9 +149,9 @@ Untuk menambah teknologi baru di section Skills:
 }
 ```
 
-### 4. Mengubah Social Links
+### 6. Mengubah Social Links
 
-Untuk mengubah link sosial media:
+Untuk mengubah link sosial media, edit `index-content.json`:
 
 ```json
 {
@@ -103,40 +169,47 @@ Untuk mengubah link sosial media:
 
 ## Struktur JSON
 
-### Meta Information
-- `title`: Judul halaman
-- `description`: Meta description
-- `language`: Bahasa default
+### index-content.json (Halaman Utama)
+- `meta`: Meta information (title, description, language)
+- `navigation`: Menu navigasi dan brand
+- `hero`: Section hero dengan title, description, dan social links
+- `projects`: Proyek-proyek yang ditampilkan
+- `blog`: Preview artikel blog (3 artikel terbaru)
+- `openSource`: Proyek open source
+- `skills`: Teknologi dan keahlian
+- `contact`: Form kontak
+- `footer`: Copyright
+- `profile`: Informasi profil
 
-### Navigation
-- `brand`: Nama brand
-- `menu`: Array menu navigasi
-- `downloadCv`: Teks tombol download CV
+### blog-content.json (Halaman Blog)
+- `meta`: Meta information untuk halaman blog
+- `navigation`: Menu navigasi (sama dengan halaman utama)
+- `blog`: 
+  - `title`: Judul halaman blog
+  - `subtitle`: Subtitle halaman blog
+  - `categories`: Array kategori untuk filtering
+  - `posts`: Array artikel blog lengkap
+- `footer`: Copyright
 
-### Hero Section
-- `title`: Judul utama
-- `description`: Deskripsi
-- `highlightedRole`: Role yang di-highlight
-- `cta`: Call-to-action button
-- `socialLinks`: Array link sosial media
+## Halaman Blog
 
-### Projects
-- `title`: Judul section
-- `items`: Array proyek-proyek
+Website memiliki halaman blog terpisah (`blog.html`) dengan fitur:
 
-### Open Source
-- `title`: Judul section
-- `projects`: Array proyek open source dengan teknologi dan stats
+### Fitur Blog
+- **Dynamic Category Filtering**: Filter artikel berdasarkan kategori yang didefinisikan di JSON
+- **Load More**: Pagination dengan tombol "Load More" untuk memuat artikel tambahan
+- **Responsive Grid**: Layout grid yang responsif untuk berbagai ukuran layar
+- **Multi-language**: Dukungan bahasa Indonesia dan Inggris
+- **Content Management**: Semua konten blog dikelola melalui `blog-content.json`
 
-### Skills
-- `title`: Judul section
-- `subtitle`: Subtitle section
-- `technologies`: Array teknologi dengan icon dan warna
-
-### Contact
-- `title`: Judul section
-- `subtitle`: Subtitle section
-- `form`: Form fields dengan placeholder
+### Kategori Blog (Dapat Dikustomisasi)
+- **All Posts**: Semua artikel
+- **Web Development**: Artikel tentang pengembangan web
+- **DevOps**: Artikel tentang DevOps dan deployment
+- **JavaScript**: Artikel tentang JavaScript dan frontend
+- **Laravel**: Artikel khusus tentang Laravel framework
+- **React**: Artikel tentang React dan frontend frameworks
+- **Docker**: Artikel tentang containerization dan Docker
 
 ## Language Switching
 

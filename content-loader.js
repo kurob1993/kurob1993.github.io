@@ -20,13 +20,13 @@ class ContentLoader {
 
     async loadContent() {
         try {
-            const response = await fetch('content.json');
+            const response = await fetch('index-content.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             this.content = await response.json();
         } catch (error) {
-            console.error('Failed to load content.json:', error);
+            console.error('Failed to load index-content.json:', error);
             throw error;
         }
     }
@@ -55,6 +55,13 @@ class ContentLoader {
             },
             projects: {
                 title: { en: "Selected Projects", id: "Proyek Pilihan" }
+            },
+            blog: {
+                title: { en: "Latest Blog Posts", id: "Artikel Blog Terbaru" },
+                subtitle: { 
+                    en: "Thoughts, tutorials, and insights about web development and technology",
+                    id: "Pemikiran, tutorial, dan wawasan tentang pengembangan web dan teknologi"
+                }
             },
             openSource: {
                 title: { en: "Open Source Projects", id: "Proyek Open Source" }
@@ -127,6 +134,7 @@ class ContentLoader {
         this.renderNavigation();
         this.renderHero();
         this.renderProjects();
+        this.renderBlog();
         this.renderOpenSource();
         this.renderSkills();
         this.renderContact();
@@ -216,6 +224,65 @@ class ContentLoader {
                     }
                 }
             });
+        }
+    }
+
+    renderBlog() {
+        // Update section title and subtitle
+        const sectionTitle = document.querySelector('#blog h2');
+        const sectionSubtitle = document.querySelector('#blog p');
+        
+        if (sectionTitle) {
+            sectionTitle.textContent = this.getText(this.content.blog.title);
+        }
+        if (sectionSubtitle) {
+            sectionSubtitle.textContent = this.getText(this.content.blog.subtitle);
+        }
+
+        // Update blog posts if they exist in content
+        if (this.content.blog.posts) {
+            const blogArticles = document.querySelectorAll('#blog article');
+            this.content.blog.posts.forEach((post, index) => {
+                if (blogArticles[index]) {
+                    const titleElement = blogArticles[index].querySelector('h3');
+                    const excerptElement = blogArticles[index].querySelector('p');
+                    const categoryElement = blogArticles[index].querySelector('span');
+                    const dateElement = blogArticles[index].querySelector('.flex.items-center.justify-between span:first-child');
+                    const readTimeElement = blogArticles[index].querySelector('.flex.items-center.justify-between span:last-child');
+                    const readMoreLink = blogArticles[index].querySelector('a[href="#"]');
+                    
+                    if (titleElement) {
+                        titleElement.textContent = this.getText(post.title);
+                    }
+                    if (excerptElement) {
+                        excerptElement.textContent = this.getText(post.excerpt);
+                    }
+                    if (categoryElement) {
+                        categoryElement.textContent = this.getText(post.category);
+                    }
+                    if (dateElement) {
+                        // Format date
+                        const date = new Date(post.date);
+                        dateElement.textContent = date.toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'short', 
+                            day: 'numeric' 
+                        });
+                    }
+                    if (readTimeElement) {
+                        readTimeElement.textContent = this.getText(post.readTime);
+                    }
+                    if (readMoreLink && post.url) {
+                        readMoreLink.href = post.url;
+                    }
+                }
+            });
+        }
+
+        // Update "View All Posts" button
+        const viewAllBtn = document.querySelector('#blog .text-center a');
+        if (viewAllBtn) {
+            viewAllBtn.textContent = this.currentLanguage === 'id' ? 'Lihat Semua Artikel' : 'View All Posts';
         }
     }
 

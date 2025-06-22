@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog posts about web development, technology, and programming insights by Kurob">
+    <title>Blog - Okuru.id</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0c0c1d;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .language-switcher {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 0.5rem 0;
+            min-width: 120px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .language-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .language-option.active {
+            background: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+        }
+
+        .category-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .category-web-dev { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+        .category-devops { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .category-javascript { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .category-laravel { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+        .category-react { background: rgba(6, 182, 212, 0.2); color: #22d3ee; }
+        .category-docker { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+
+        @keyframes moveBlob1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(10vw, -15vh) scale(1.2); }
+        }
+        @keyframes moveBlob2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-15vw, 20vh) scale(0.8); }
+        }
+        .animate-blob-1 { animation: moveBlob1 25s infinite ease-in-out; }
+        .animate-blob-2 { animation: moveBlob2 30s infinite ease-in-out; }
+
+        @media (max-width: 768px) {
+            header .container {
+                justify-content: center;
+            }
+            
+            header .text-2xl {
+                text-align: center;
+                margin-right: 0;
+                flex-grow: 1;
+            }
+            
+            header nav {
+                display: none;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+        <div class="absolute top-[-20vh] left-[-10vw] w-[50vw] h-[50vw] bg-emerald-700 rounded-full opacity-20 filter blur-3xl animate-blob-1"></div>
+        <div class="absolute bottom-[-10vh] right-[-15vw] w-[45vw] h-[45vw] bg-indigo-700 rounded-full opacity-20 filter blur-3xl animate-blob-2"></div>
+    </div>
+
+    <header class="sticky top-0 z-50 py-4 px-6 md:px-0">
+        <div class="container mx-auto glass-card p-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white text-center flex-grow">Okuru.id</div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html#projects" class="hover:text-green-400 transition-colors">Projects</a>
+                <a href="blog.html" class="text-green-400 font-medium">Blog</a>
+                <a href="index.html#open-source" class="hover:text-green-400 transition-colors">Open Source</a>
+                <a href="index.html#skills" class="hover:text-green-400 transition-colors">Skills</a>
+                <a href="index.html#contact" class="hover:text-green-400 transition-colors">Contact</a>
+                <a href="index.html#download-cv" class="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-300">Download CV</a>
+                
+                <div class="language-switcher">
+                    <button class="language-btn" onclick="toggleLanguageDropdown()">
+                        <i class="fas fa-globe"></i>
+                        <span id="current-lang">EN</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown" id="language-dropdown">
+                        <div class="language-option active" onclick="changeLanguage('en')">
+                            <span>🇺🇸</span>
+                            <span>English</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('id')">
+                            <span>🇮🇩</span>
+                            <span>Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+        <section class="py-24">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Blog</h1>
+                    <p class="text-lg text-gray-300 max-w-2xl mx-auto">Thoughts, tutorials, and insights about web development and technology</p>
+                </div>
+
+                <!-- Category Filter -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <!-- Category filters will be loaded dynamically -->
+                </div>
+
+                <!-- Blog Posts Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 blog-grid" id="blog-grid">
+                    <!-- Blog posts will be loaded here -->
+                </div>
+
+                <!-- Load More Button -->
+                <div class="text-center mt-16">
+                    <button id="load-more" class="px-8 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-300 transform hover:scale-105">
+                        Load More Posts
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 text-center border-t border-white/10 mt-16">
+        <p class="text-gray-400">© 2024 Okuru.id. All Rights Reserved.</p>
+    </footer>
+
+    <script src="blog-loader.js"></script>
+</body>
+</html> 

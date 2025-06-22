@@ -1,0 +1,345 @@
+{
+  "meta": {
+    "title": "Blog - Okuru.id",
+    "description": "Blog posts about web development, technology, and programming insights by Kurob",
+    "language": "id"
+  },
+  "navigation": {
+    "brand": "Okuru.id",
+    "menu": [
+      {
+        "id": "projects",
+        "en": "Projects",
+        "id": "Proyek"
+      },
+      {
+        "id": "blog",
+        "en": "Blog",
+        "id": "Blog"
+      },
+      {
+        "id": "open-source",
+        "en": "Open Source",
+        "id": "Open Source"
+      },
+      {
+        "id": "skills",
+        "en": "Skills",
+        "id": "Keahlian"
+      },
+      {
+        "id": "contact",
+        "en": "Contact",
+        "id": "Kontak"
+      }
+    ],
+    "downloadCv": {
+      "en": "Download CV",
+      "id": "Unduh CV"
+    }
+  },
+  "blog": {
+    "title": {
+      "en": "Blog",
+      "id": "Blog"
+    },
+    "subtitle": {
+      "en": "Thoughts, tutorials, and insights about web development and technology",
+      "id": "Pemikiran, tutorial, dan wawasan tentang pengembangan web dan teknologi"
+    },
+    "categories": [
+      {
+        "slug": "all",
+        "en": "All Posts",
+        "id": "Semua Artikel"
+      },
+      {
+        "slug": "web-development",
+        "en": "Web Development",
+        "id": "Pengembangan Web"
+      },
+      {
+        "slug": "devops",
+        "en": "DevOps",
+        "id": "DevOps"
+      },
+      {
+        "slug": "javascript",
+        "en": "JavaScript",
+        "id": "JavaScript"
+      },
+      {
+        "slug": "laravel",
+        "en": "Laravel",
+        "id": "Laravel"
+      },
+      {
+        "slug": "react",
+        "en": "React",
+        "id": "React"
+      },
+      {
+        "slug": "docker",
+        "en": "Docker",
+        "id": "Docker"
+      }
+    ],
+    "posts": [
+      {
+        "title": {
+          "en": "Building Scalable Web Applications with Laravel",
+          "id": "Membangun Aplikasi Web yang Dapat Diskalakan dengan Laravel"
+        },
+        "excerpt": {
+          "en": "Learn how to create robust and scalable web applications using Laravel framework. This post covers best practices, architecture patterns, and performance optimization techniques.",
+          "id": "Pelajari cara membuat aplikasi web yang tangguh dan dapat diskalakan menggunakan framework Laravel. Artikel ini membahas praktik terbaik, pola arsitektur, dan teknik optimasi performa."
+        },
+        "date": "2024-01-15",
+        "readTime": {
+          "en": "8 min read",
+          "id": "8 menit baca"
+        },
+        "category": {
+          "en": "Web Development",
+          "id": "Pengembangan Web"
+        },
+        "categorySlug": "web-development",
+        "url": "#"
+      },
+      {
+        "title": {
+          "en": "Docker Best Practices for Development Teams",
+          "id": "Praktik Terbaik Docker untuk Tim Pengembangan"
+        },
+        "excerpt": {
+          "en": "Discover essential Docker practices that every development team should follow. From containerization strategies to CI/CD integration, this guide covers everything you need to know.",
+          "id": "Temukan praktik Docker yang penting yang harus diikuti setiap tim pengembangan. Dari strategi containerisasi hingga integrasi CI/CD, panduan ini mencakup semua yang perlu Anda ketahui."
+        },
+        "date": "2024-01-10",
+        "readTime": {
+          "en": "12 min read",
+          "id": "12 menit baca"
+        },
+        "category": {
+          "en": "DevOps",
+          "id": "DevOps"
+        },
+        "categorySlug": "devops",
+        "url": "#"
+      },
+      {
+        "title": {
+          "en": "Modern JavaScript Patterns for Better Code",
+          "id": "Pola JavaScript Modern untuk Kode yang Lebih Baik"
+        },
+        "excerpt": {
+          "en": "Explore modern JavaScript patterns and techniques that can improve your code quality, maintainability, and performance. Perfect for both beginners and experienced developers.",
+          "id": "Jelajahi pola dan teknik JavaScript modern yang dapat meningkatkan kualitas kode, kemudahan pemeliharaan, dan performa. Sempurna untuk pemula dan pengembang berpengalaman."
+        },
+        "date": "2024-01-05",
+        "readTime": {
+          "en": "10 min read",
+          "id": "10 menit baca"
+        },
+        "category": {
+          "en": "JavaScript",
+          "id": "JavaScript"
+        },
+        "categorySlug": "javascript",
+        "url": "#"
+      },
+      {
+        "title": {
+          "en": "Advanced Laravel Eloquent Relationships",
+          "id": "Relasi Eloquent Laravel Lanjutan"
+        },
+        "excerpt": {
+          "en": "Deep dive into Laravel Eloquent relationships, including polymorphic relationships and advanced querying techniques for complex data structures.",
+          "id": "Mendalami relasi Laravel Eloquent, termasuk relasi polimorfik dan teknik querying lanjutan untuk struktur data yang kompleks."
+        },
+        "date": "2024-01-20",
+        "readTime": {
+          "en": "15 min read",
+          "id": "15 menit baca"
+        },
+        "category": {
+          "en": "Laravel",
+          "id": "Laravel"
+        },
+        "categorySlug": "laravel",
+        "url": "#"
+      },
+      {
+        "title": {
+          "en": "React Performance Optimization Techniques",
+          "id": "Teknik Optimasi Performa React"
+        },
+        "excerpt": {
+          "en": "Learn how to optimize React applications for better performance using React.memo, useMemo, useCallback, and other optimization techniques.",
+          "id": "Pelajari cara mengoptimalkan aplikasi React untuk performa yang lebih baik menggunakan React.memo, useMemo, useCallback, dan teknik optimasi lainnya."
+        },
+        "date": "2024-01-18",
+        "readTime": {
+          "en": "12 min read",
+          "id": "12 menit baca"
+        },
+        "category": {
+          "en": "React",
+          "id": "React"
+        },
+        "categorySlug": "react",
+        "url": "#"
+      },
+      {
+        "title": {
+          "en": "Docker Compose for Local Development",
+          "id": "Docker Compose untuk Pengembangan Lokal"
+        },
+        "excerpt": {
+          "en": "Set up a complete development environment using Docker Compose with multiple services, databases, and development tools for efficient local development.",
+          "id": "Siapkan lingkungan pengembangan lengkap menggunakan Docker Compose dengan berbagai layanan, database, dan alat pengembangan untuk pengembangan lokal yang efisien."
+        },
+        "date": "2024-01-12",
+        "readTime": {
+          "en": "10 min read",
+          "id": "10 menit baca"
+        },
+        "category": {
+          "en": "Docker",
+          "id": "Docker"
+        },
+        "categorySlug": "docker",
+        "url": "#"
+      },
+      {
+        "title": {
+          "en": "TypeScript Best Practices for Large Projects",
+          "id": "Praktik Terbaik TypeScript untuk Proyek Besar"
+        },
+        "excerpt": {
+          "en": "Essential TypeScript practices and patterns for maintaining large-scale applications with type safety and better developer experience.",
+          "id": "Praktik dan pola TypeScript yang penting untuk mempertahankan aplikasi skala besar dengan type safety dan pengalaman pengembang yang lebih baik."
+        },
+        "date": "2024-01-08",
+        "readTime": {
+          "en": "14 min read",
+          "id": "14 menit baca"
+        },
+        "category": {
+          "en": "JavaScript",
+          "id": "JavaScript"
+        },
+        "categorySlug": "javascript",
+        "url": "#"
+      },
+      {
+        "title": {
+          "en": "Laravel API Development with Sanctum",
+          "id": "Pengembangan API Laravel dengan Sanctum"
+        },
+        "excerpt": {
+          "en": "Build secure REST APIs with Laravel Sanctum authentication and proper API design patterns for modern web applications.",
+          "id": "Membangun REST API yang aman dengan autentikasi Laravel Sanctum dan pola desain API yang tepat untuk aplikasi web modern."
+        },
+        "date": "2024-01-03",
+        "readTime": {
+          "en": "18 min read",
+          "id": "18 menit baca"
+        },
+        "category": {
+          "en": "Laravel",
+          "id": "Laravel"
+        },
+        "categorySlug": "laravel",
+        "url": "#"
+      },
+      {
+        "title": {
+          "en": "CI/CD Pipeline with GitHub Actions",
+          "id": "Pipeline CI/CD dengan GitHub Actions"
+        },
+        "excerpt": {
+          "en": "Set up automated testing and deployment pipelines using GitHub Actions for your web applications with best practices and security considerations.",
+          "id": "Siapkan pipeline testing dan deployment otomatis menggunakan GitHub Actions untuk aplikasi web Anda dengan praktik terbaik dan pertimbangan keamanan."
+        },
+        "date": "2023-12-28",
+        "readTime": {
+          "en": "16 min read",
+          "id": "16 menit baca"
+        },
+        "category": {
+          "en": "DevOps",
+          "id": "DevOps"
+        },
+        "categorySlug": "devops",
+        "url": "#"
+      },
+      {
+        "title": {
+          "en": "Vue.js 3 Composition API Deep Dive",
+          "id": "Mendalami Vue.js 3 Composition API"
+        },
+        "excerpt": {
+          "en": "Explore Vue.js 3 Composition API and learn how to build more maintainable and scalable Vue applications with modern patterns.",
+          "id": "Jelajahi Vue.js 3 Composition API dan pelajari cara membangun aplikasi Vue yang lebih mudah dipelihara dan dapat diskalakan dengan pola modern."
+        },
+        "date": "2023-12-25",
+        "readTime": {
+          "en": "13 min read",
+          "id": "13 menit baca"
+        },
+        "category": {
+          "en": "Web Development",
+          "id": "Pengembangan Web"
+        },
+        "categorySlug": "web-development",
+        "url": "#"
+      },
+      {
+        "title": {
+          "en": "Kubernetes for Beginners: Getting Started",
+          "id": "Kubernetes untuk Pemula: Memulai"
+        },
+        "excerpt": {
+          "en": "A comprehensive guide to getting started with Kubernetes, covering basic concepts, deployment strategies, and best practices for container orchestration.",
+          "id": "Panduan komprehensif untuk memulai dengan Kubernetes, mencakup konsep dasar, strategi deployment, dan praktik terbaik untuk orkestrasi container."
+        },
+        "date": "2023-12-20",
+        "readTime": {
+          "en": "20 min read",
+          "id": "20 menit baca"
+        },
+        "category": {
+          "en": "DevOps",
+          "id": "DevOps"
+        },
+        "categorySlug": "devops",
+        "url": "#"
+      },
+      {
+        "title": {
+          "en": "Next.js 14 App Router Complete Guide",
+          "id": "Panduan Lengkap Next.js 14 App Router"
+        },
+        "excerpt": {
+          "en": "Master Next.js 14 App Router with this comprehensive guide covering server components, routing, data fetching, and performance optimization.",
+          "id": "Kuasai Next.js 14 App Router dengan panduan komprehensif ini yang mencakup server components, routing, data fetching, dan optimasi performa."
+        },
+        "date": "2023-12-15",
+        "readTime": {
+          "en": "25 min read",
+          "id": "25 menit baca"
+        },
+        "category": {
+          "en": "React",
+          "id": "React"
+        },
+        "categorySlug": "react",
+        "url": "#"
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2024 Okuru.id. All Rights Reserved."
+  }
+} 
