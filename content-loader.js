@@ -174,16 +174,16 @@ class ContentLoader {
             }
         });
 
-        // Update download CV button and add download functionality
-        const downloadCvBtn = document.querySelector('a[href="#download-cv"]');
-        if (downloadCvBtn) {
-            downloadCvBtn.textContent = this.getText(this.content.navigation.downloadCv);
-            downloadCvBtn.href = 'javascript:void(0)';
-            downloadCvBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.downloadCV();
-            });
-        }
+        // // Update download CV button and add download functionality
+        // const downloadCvBtn = document.querySelector('a[href="#download-cv"]');
+        // if (downloadCvBtn) {
+        //     downloadCvBtn.textContent = this.getText(this.content.navigation.downloadCv);
+        //     downloadCvBtn.href = 'javascript:void(0)';
+        //     downloadCvBtn.addEventListener('click', (e) => {
+        //         e.preventDefault();
+        //         this.downloadCV();
+        //     });
+        // }
     }
 
     downloadCV() {
