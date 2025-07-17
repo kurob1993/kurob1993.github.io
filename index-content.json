@@ -215,47 +215,6 @@
     "projects": [
       {
         "title": {
-          "en": "Resident Fee Management System",
-          "id": "Sistem Pengelolaan Iuran Warga"
-        },
-        "description": {
-          "en": "A modern solution for managing resident fee payments designed to facilitate transparent recording, automatic calculations, and guaranteed security with modern encryption.",
-          "id": "Solusi modern untuk manajemen pembayaran iuran warga yang dirancang untuk memudahkan pencatatan, perhitungan, dan pelacakan iuran secara transparan dan efisien. Fitur meliputi pencatatan transparan, perhitungan otomatis, dan keamanan terjamin dengan enkripsi modern."
-        },
-        "githubUrl": "https://github.com/kurob1993/kelola",
-        "technologies": [
-          {
-            "name": "Laravel",
-            "color": "red",
-            "bgColor": "red-500/20",
-            "textColor": "red-400"
-          },
-          {
-            "name": "PHP",
-            "color": "purple",
-            "bgColor": "purple-500/20",
-            "textColor": "purple-400"
-          },
-          {
-            "name": "PostgreSQL",
-            "color": "indigo",
-            "bgColor": "indigo-500/20",
-            "textColor": "indigo-400"
-          },
-          {
-            "name": "Tailwind CSS",
-            "color": "cyan",
-            "bgColor": "cyan-500/20",
-            "textColor": "cyan-400"
-          }
-        ],
-        "stats": {
-          "stars": 5,
-          "license": "MIT License"
-        }
-      },
-      {
-        "title": {
           "en": "SQL Server Docker Backup Script",
           "id": "Script Backup SQL Server Docker"
         },
