@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog posts about web development, technology, and programming insights by Kurob">
     <title>Blog - Programmer Cilegon | Web Developer Freelance | Fullstack Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="/assets/js/tailwind.js"></script>
+    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="/assets/css/poppins.css" rel="stylesheet">
 
     <style>
         body {
@@ -215,47 +215,6 @@
             transform: scale(1.1);
         }
 
-        .nav-more-dropdown {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(30, 30, 50, 0.98);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 8px 0;
-            min-width: 160px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.2s ease;
-            margin-bottom: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-more-dropdown.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .nav-more-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 16px;
-            color: rgba(255, 255, 255, 0.8);
-            transition: background 0.2s ease;
-        }
-
-        .nav-more-item:hover {
-            background: rgba(74, 222, 128, 0.1);
-            color: #4ade80;
-        }
-
-        .nav-more-item i {
-            width: 20px;
-            text-align: center;
-        }
-
         body {
             padding-bottom: 85px;
         }
@@ -346,71 +305,5 @@
     </footer>
 
     <script src="blog-loader.js"></script>
-    <script>
-        // Floating Bottom Navigation
-        function toggleNavMore(event) {
-            event.preventDefault();
-            const dropdown = document.getElementById('nav-more-dropdown');
-            dropdown.classList.toggle('show');
-        }
-
-        function closeNavMore() {
-            document.getElementById('nav-more-dropdown').classList.remove('show');
-        }
-
-        // Close nav more dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const moreButton = event.target.closest('.nav-item[onclick]');
-            if (!moreButton) {
-                const dropdown = document.getElementById('nav-more-dropdown');
-                const moreContainer = dropdown.parentElement;
-                if (!moreContainer.contains(event.target)) {
-                    dropdown.classList.remove('show');
-                }
-            }
-        });
-    </script>
-
-    <!-- Floating Bottom Navigation -->
-    <nav class="floating-bottom-nav md:hidden">
-        <div class="flex justify-around items-end pb-2 pt-2">
-            <a href="index.html#home" class="nav-item">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </a>
-            <a href="index.html#projects" class="nav-item">
-                <i class="fas fa-folder"></i>
-                <span>Projects</span>
-            </a>
-            
-            <div class="relative">
-                <a href="index.html#contact" class="nav-fab flex items-center justify-center text-white">
-                    <i class="fas fa-phone"></i>
-                </a>
-            </div>
-            
-            <a href="blog.html" class="nav-item active-blog">
-                <i class="fas fa-blog"></i>
-                <span>Blog</span>
-            </a>
-            
-            <div class="relative">
-                <button class="nav-item" onclick="toggleNavMore(event)">
-                    <i class="fas fa-ellipsis-h"></i>
-                    <span>More</span>
-                </button>
-                <div class="nav-more-dropdown" id="nav-more-dropdown">
-                    <a href="index.html#skills" class="nav-more-item" onclick="closeNavMore()">
-                        <i class="fas fa-code"></i>
-                        <span>Skills</span>
-                    </a>
-                    <a href="index.html#open-source" class="nav-more-item" onclick="closeNavMore()">
-                        <i class="fab fa-github"></i>
-                        <span>Open Source</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
 </body>
 </html> 

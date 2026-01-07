@@ -6,13 +6,13 @@
     <meta name="description" content="Butuh programmer Cilegon? Saya adalah full-stack web developer freelance dari Cilegon dengan pengalaman lebih dari 8 tahun. Spesialis Laravel, React, PHP, dan DevOps.">
     <meta name="keywords" content="programmer Cilegon, web developer Cilegon, developer handal Cilegon, cari programmer Cilegon, freelance programmer Cilegon, full stack developer Cilegon">
     <title>Programmer Cilegon | Web Developer Freelance | Fullstack Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="/assets/js/tailwind.js"></script>
+    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/swiper.min.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="/assets/css/poppins.css" rel="stylesheet">
 
     <style>
         body {
@@ -363,47 +363,6 @@
             transform: scale(1.1);
         }
 
-        .nav-more-dropdown {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(30, 30, 50, 0.98);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 8px 0;
-            min-width: 160px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.2s ease;
-            margin-bottom: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-more-dropdown.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .nav-more-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 16px;
-            color: rgba(255, 255, 255, 0.8);
-            transition: background 0.2s ease;
-        }
-
-        .nav-more-item:hover {
-            background: rgba(74, 222, 128, 0.1);
-            color: #4ade80;
-        }
-
-        .nav-more-item i {
-            width: 20px;
-            text-align: center;
-        }
-
         body {
             padding-bottom: 85px;
         }
@@ -465,7 +424,7 @@
         <section class="container mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-4 text-center">
             <div class="glass-card p-8 md:p-12 flex flex-col items-center">
                 <div class="rounded-full overflow-hidden h-36 w-36 md:h-48 md:w-48 mb-6 border-4 border-white/20 shadow-lg">
-                    <img src="/kurob.jpg" alt="Programmer Cilegon - Kurob" class="object-cover h-full w-full">
+                    <img src="/kurob.jpg" alt="Programmer Cilegon - Kurob" class="object-cover h-full w-full" loading="lazy" decoding="async">
                 </div>
 
                 <h1 class="text-4xl md:text-5xl font-bold text-white">Hi, I'm Kurob</h1>
@@ -683,7 +642,7 @@
         <p class="text-gray-400">© 2024 Okuru.id. All Rights Reserved.</p>
     </footer>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/js/swiper.min.js"></script>
     <script src="content-loader.js"></script>
     <script>
         // Initialize Swiper
@@ -784,8 +743,26 @@
         });
 
         // Floating Bottom Navigation
+        function scrollToTop(event, element) {
+            event.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            setActiveNavItem(element);
+        }
+
+        function setActiveNavItem(element) {
+            document.querySelectorAll('.nav-item[data-section]').forEach(item => {
+                item.classList.remove('active');
+            });
+            if (element) {
+                element.classList.add('active');
+            }
+        }
+
         function updateActiveNavItem() {
-            const sections = ['home', 'projects', 'skills', 'open-source', 'contact'];
+            const sections = ['home', 'projects', 'blog', 'skills', 'open-source', 'contact'];
             const scrollPos = window.scrollY + 120;
             
             for (const section of sections) {
@@ -805,37 +782,22 @@
             }
         }
 
-        function toggleNavMore(event) {
-            event.preventDefault();
-            const dropdown = document.getElementById('nav-more-dropdown');
-            dropdown.classList.toggle('show');
-        }
-
-        function closeNavMore() {
-            document.getElementById('nav-more-dropdown').classList.remove('show');
-        }
-
-        // Close nav more dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const moreButton = event.target.closest('.nav-item[onclick]');
-            if (!moreButton) {
-                const dropdown = document.getElementById('nav-more-dropdown');
-                const moreContainer = dropdown.parentElement;
-                if (!moreContainer.contains(event.target)) {
-                    dropdown.classList.remove('show');
-                }
-            }
-        });
-
         // Event listeners for floating nav
         window.addEventListener('scroll', updateActiveNavItem);
         window.addEventListener('load', updateActiveNavItem);
+
+        // Handle nav item click
+        document.querySelectorAll('.nav-item[data-section]').forEach(item => {
+            item.addEventListener('click', function(e) {
+                setActiveNavItem(this);
+            });
+        });
     </script>
 
     <!-- Floating Bottom Navigation -->
     <nav class="floating-bottom-nav md:hidden">
         <div class="flex justify-around items-end pb-2 pt-2">
-            <a href="#home" class="nav-item" data-section="home">
+            <a href="#" class="nav-item active" onclick="scrollToTop(event, this)" data-section="home">
                 <i class="fas fa-home"></i>
                 <span>Home</span>
             </a>
@@ -850,27 +812,15 @@
                 </a>
             </div>
             
-            <a href="blog.html" class="nav-item">
+            <a href="#blog" class="nav-item" data-section="blog">
                 <i class="fas fa-blog"></i>
                 <span>Blog</span>
             </a>
             
-            <div class="relative">
-                <button class="nav-item" onclick="toggleNavMore(event)">
-                    <i class="fas fa-ellipsis-h"></i>
-                    <span>More</span>
-                </button>
-                <div class="nav-more-dropdown" id="nav-more-dropdown">
-                    <a href="#skills" class="nav-more-item" onclick="closeNavMore()">
-                        <i class="fas fa-code"></i>
-                        <span>Skills</span>
-                    </a>
-                    <a href="#open-source" class="nav-more-item" onclick="closeNavMore()">
-                        <i class="fab fa-github"></i>
-                        <span>Open Source</span>
-                    </a>
-                </div>
-            </div>
+            <a href="#skills" class="nav-item" data-section="skills">
+                <i class="fas fa-code"></i>
+                <span>Skills</span>
+            </a>
         </div>
     </nav>
 </body>
