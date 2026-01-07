@@ -19,7 +19,28 @@
             font-family: 'Poppins', sans-serif;
             background-color: #0c0c1d; /* Dark blue/purple background */
             color: #e0e0e0;
-            overflow-x: hidden; /* Prevent horizontal scroll from blobs */
+            overflow-x: clip; /* Allow horizontal scroll for swiper, clip blobs */
+        }
+
+        /* Swiper container - allow horizontal touch scrolling */
+        .swiper-container {
+            touch-action: pan-y;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .swiper-wrapper {
+            touch-action: pan-x pinch-zoom;
+            cursor: grab;
+        }
+
+        .swiper-wrapper:active {
+            cursor: grabbing;
+        }
+
+        .swiper-slide {
+            touch-action: pan-x;
+            user-select: none;
         }
         
         /* Glassmorphism Card Style */
@@ -175,18 +196,34 @@
                 justify-content: center; /* Ensure the glass card content is centered */
             }
             
-            /* General mobile adjustments */
+            /* Mobile swiper improvements for touch swiping */
+            .swiper-container {
+                padding: 0 0.5rem;
+                touch-action: pan-x pinch-zoom;
+                -webkit-tap-highlight-color: transparent;
+                -webkit-touch-callout: none;
+            }
+            
             .swiper-wrapper {
                 padding-bottom: 2rem;
+                cursor: grab;
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            .swiper-wrapper:active {
+                cursor: grabbing;
             }
             
             .swiper-slide {
                 margin-bottom: 1rem;
-                padding: 0 0.5rem;
+                padding: 0 0.25rem;
+                touch-action: pan-x;
+                transition: transform 0.2s ease;
+                -webkit-tap-highlight-color: transparent;
             }
             
-            .swiper-container {
-                padding: 0 1rem;
+            .swiper-slide:active {
+                transform: scale(0.98);
             }
             
             .glass-card {
@@ -195,11 +232,11 @@
 
             /* Additional spacing for project cards on mobile */
             #projects .swiper-slide {
-                margin: 0 0.5rem 1rem 0.5rem;
+                margin: 0 0.25rem 1rem 0.25rem;
             }
 
             #projects .swiper-container {
-                padding: 0 0.5rem;
+                padding: 0 0.25rem;
             }
 
             #projects .swiper-wrapper {
@@ -208,8 +245,8 @@
 
             /* Increase project card height on mobile */
             .project-card {
-                height: 280px;
-                min-height: 280px;
+                height: auto;
+                min-height: 240px;
             }
 
             .project-card h3 {
@@ -256,6 +293,132 @@
         }
         .animate-blob-1 { animation: moveBlob1 25s infinite ease-in-out; }
         .animate-blob-2 { animation: moveBlob2 30s infinite ease-in-out; }
+
+        /* Floating Bottom Navigation */
+        .floating-bottom-nav {
+            position: fixed;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            z-index: 9999;
+            background: rgba(12, 12, 29, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: env(safe-area-inset-bottom);
+        }
+
+        .nav-fab {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            box-shadow: 0 4px 20px rgba(74, 222, 128, 0.4);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-fab:hover {
+            transform: translateY(-24px);
+            box-shadow: 0 6px 25px rgba(74, 222, 128, 0.5);
+        }
+
+        .nav-fab:active {
+            transform: translateY(-20px) scale(0.95);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.75rem;
+            transition: color 0.2s ease;
+            min-width: 60px;
+        }
+
+        .nav-item:hover {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-item.active {
+            color: #4ade80;
+        }
+
+        .nav-item i {
+            font-size: 1.25rem;
+            margin-bottom: 2px;
+        }
+
+        .nav-item.active i {
+            transform: scale(1.1);
+        }
+
+        .nav-more-dropdown {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(30, 30, 50, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px 0;
+            min-width: 160px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-more-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-more-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            color: rgba(255, 255, 255, 0.8);
+            transition: background 0.2s ease;
+        }
+
+        .nav-more-item:hover {
+            background: rgba(74, 222, 128, 0.1);
+            color: #4ade80;
+        }
+
+        .nav-more-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        body {
+            padding-bottom: 85px;
+        }
+
+        @media (max-width: 767px) {
+            .floating-bottom-nav {
+                display: block !important;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .floating-bottom-nav {
+                display: none !important;
+            }
+        }
 
     </style>
 </head>
@@ -527,6 +690,16 @@
         var swiper = new Swiper('.swiper-container', {
             loop: true,
             grabCursor: true,
+            touchReleaseOnEdges: true,
+            touchEventsTarget: 'container',
+            edgeSwipeDetection: true,
+            edgeSwipeThreshold: 20,
+            freeMode: {
+                enabled: true,
+                momentumRatio: 0.8,
+                momentumBounceRatio: 0.8,
+                minimumVelocity: 0.02,
+            },
             autoplay: {
                 delay: 4000,
                 disableOnInteraction: false,
@@ -536,8 +709,12 @@
                 clickable: true,
             },
             breakpoints: {
+                320: {
+                    slidesPerView: 1.1,
+                    spaceBetween: 16,
+                },
                 640: {
-                    slidesPerView: 1,
+                    slidesPerView: 1.2,
                     spaceBetween: 20,
                 },
                 768: {
@@ -605,26 +782,96 @@
                 document.getElementById('language-dropdown').classList.remove('show');
             }
         });
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Kurob",
-            "jobTitle": "Full Stack Web Developer",
-            "url": "https://okuru.id",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Cilegon",
-                "addressRegion": "Banten",
-                "addressCountry": "ID"
-            },
-            "sameAs": [
-                "https://linkedin.com/in/kurob",
-                "https://github.com/kurob1993",
-                "https://dev.to/kurob_asgari_0130990101a8"
-            ]
+
+        // Floating Bottom Navigation
+        function updateActiveNavItem() {
+            const sections = ['home', 'projects', 'skills', 'open-source', 'contact'];
+            const scrollPos = window.scrollY + 120;
+            
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const offsetTop = element.offsetTop;
+                    const offsetBottom = offsetTop + element.offsetHeight;
+                    
+                    if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
+                        document.querySelectorAll('.nav-item[data-section]').forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        const activeItem = document.querySelector(`.nav-item[data-section="${section}"]`);
+                        if (activeItem) activeItem.classList.add('active');
+                    }
+                }
+            }
         }
+
+        function toggleNavMore(event) {
+            event.preventDefault();
+            const dropdown = document.getElementById('nav-more-dropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function closeNavMore() {
+            document.getElementById('nav-more-dropdown').classList.remove('show');
+        }
+
+        // Close nav more dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const moreButton = event.target.closest('.nav-item[onclick]');
+            if (!moreButton) {
+                const dropdown = document.getElementById('nav-more-dropdown');
+                const moreContainer = dropdown.parentElement;
+                if (!moreContainer.contains(event.target)) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        });
+
+        // Event listeners for floating nav
+        window.addEventListener('scroll', updateActiveNavItem);
+        window.addEventListener('load', updateActiveNavItem);
     </script>
+
+    <!-- Floating Bottom Navigation -->
+    <nav class="floating-bottom-nav md:hidden">
+        <div class="flex justify-around items-end pb-2 pt-2">
+            <a href="#home" class="nav-item" data-section="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#projects" class="nav-item" data-section="projects">
+                <i class="fas fa-folder"></i>
+                <span>Projects</span>
+            </a>
+            
+            <div class="relative">
+                <a href="#contact" class="nav-fab flex items-center justify-center text-white">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+            
+            <a href="blog.html" class="nav-item">
+                <i class="fas fa-blog"></i>
+                <span>Blog</span>
+            </a>
+            
+            <div class="relative">
+                <button class="nav-item" onclick="toggleNavMore(event)">
+                    <i class="fas fa-ellipsis-h"></i>
+                    <span>More</span>
+                </button>
+                <div class="nav-more-dropdown" id="nav-more-dropdown">
+                    <a href="#skills" class="nav-more-item" onclick="closeNavMore()">
+                        <i class="fas fa-code"></i>
+                        <span>Skills</span>
+                    </a>
+                    <a href="#open-source" class="nav-more-item" onclick="closeNavMore()">
+                        <i class="fab fa-github"></i>
+                        <span>Open Source</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 </body>
 </html>
