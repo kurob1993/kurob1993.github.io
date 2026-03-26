@@ -63,13 +63,13 @@ function App() {
           </div>
 
           <div className="hidden md:flex items-center gap-4 text-xs sm:text-sm text-[#6b7280]">
-            <a href="#blog" className="hover:text-[#1a1a1a] transition-colors">Blog</a>
-            <a href="#open-source" className="hover:text-[#1a1a1a] transition-colors">Open Source</a>
+            <button onClick={() => document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1a1a1a] transition-colors cursor-pointer">Blog</button>
+            <button onClick={() => document.getElementById('open-source')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1a1a1a] transition-colors cursor-pointer">Open Source</button>
           </div>
 
           <div className="flex md:hidden items-center gap-3 text-[#6b7280]">
-            <a href="#blog" className="hover:text-[#1a1a1a] transition-colors text-xs sm:text-sm">Blog</a>
-            <a href="#open-source" className="hover:text-[#1a1a1a] transition-colors text-xs sm:text-sm">Open Source</a>
+            <button onClick={() => document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1a1a1a] transition-colors text-xs sm:text-sm cursor-pointer">Blog</button>
+            <button onClick={() => document.getElementById('open-source')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1a1a1a] transition-colors text-xs sm:text-sm cursor-pointer">Open Source</button>
           </div>
         </div>
       </header>
@@ -117,14 +117,12 @@ function App() {
                     ? "I'm from Indonesia with 10+ years of experience as a full-stack web developer. Currently at PT Krakatau IT and available for freelance projects. I build dynamic, responsive, and robust web solutions."
                     : "Saya dari Indonesia dengan 10+ tahun pengalaman sebagai full-stack web developer. Saat ini di PT Krakatau IT dan tersedia untuk proyek freelance. Saya membangun solusi web yang dinamis, responsif, dan tangguh."}
                 </h1>
-                <a href="#contact">
-                  <button className="btn-primary inline-flex items-center gap-2">
-                    {language === 'en' ? 'Contact Me' : 'Hubungi Saya'}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </button>
-                </a>
+                <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="btn-primary inline-flex items-center gap-2">
+                  {language === 'en' ? 'Contact Me' : 'Hubungi Saya'}
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
               </div>
             </div>
 
@@ -148,14 +146,12 @@ function App() {
                   ID
                 </button>
               </div>
-              <a href="#contact">
-                <button className="btn-primary inline-flex items-center gap-2">
-                  {language === 'en' ? 'Contact Me' : 'Hubungi Saya'}
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
-              </a>
+              <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="btn-primary inline-flex items-center gap-2">
+                {language === 'en' ? 'Contact Me' : 'Hubungi Saya'}
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
             </div>
 
             {/* Language Toggle - Desktop Only */}
