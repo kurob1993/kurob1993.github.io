@@ -351,6 +351,82 @@
           "language": "Shell 100%",
           "type": "Backup Automation"
         }
+      },
+      {
+        "title": {
+          "en": "SonarQube Report Generator",
+          "id": "Generator Laporan SonarQube"
+        },
+        "description": {
+          "en": "A Go-based web application for SonarQube report generation with Jenkins integration. Features parallel fetching optimization, PDF and Markdown report output, dashboard for report management, and API-based Jenkins job triggering with CSRF protection.",
+          "id": "Aplikasi web berbasis Go untuk pembuatan laporan SonarQube dengan integrasi Jenkins. Fitur meliputi optimasi pengambilan data paralel, output laporan PDF dan Markdown, dashboard manajemen laporan, dan pemicu job Jenkins berbasis API dengan proteksi CSRF."
+        },
+        "githubUrl": "https://github.com/okuru-id/sonar-report",
+        "technologies": [
+          {
+            "name": "Go",
+            "color": "cyan",
+            "bgColor": "cyan-500/20",
+            "textColor": "cyan-400"
+          },
+          {
+            "name": "Docker",
+            "color": "blue",
+            "bgColor": "blue-500/20",
+            "textColor": "blue-400"
+          },
+          {
+            "name": "SonarQube",
+            "color": "green",
+            "bgColor": "green-500/20",
+            "textColor": "green-400"
+          },
+          {
+            "name": "Jenkins",
+            "color": "red",
+            "bgColor": "red-500/20",
+            "textColor": "red-400"
+          }
+        ],
+        "stats": {
+          "stars": 0,
+          "license": "MIT License"
+        }
+      },
+      {
+        "title": {
+          "en": "Tactile Match Game",
+          "id": "Permainan Tactile Match"
+        },
+        "description": {
+          "en": "A fun and interactive tactile matching game built with JavaScript. Test your memory and pattern recognition skills in this engaging browser-based game.",
+          "id": "Permainan mencocokkan tactile yang seru dan interaktif dibangun dengan JavaScript. Uji kemampuan memori dan pengenalan pola dalam permainan berbasis browser yang menarik ini."
+        },
+        "githubUrl": "https://github.com/okuru-id/tactile-match-game",
+        "technologies": [
+          {
+            "name": "JavaScript",
+            "color": "yellow",
+            "bgColor": "yellow-500/20",
+            "textColor": "yellow-400"
+          },
+          {
+            "name": "HTML",
+            "color": "orange",
+            "bgColor": "orange-500/20",
+            "textColor": "orange-400"
+          },
+          {
+            "name": "CSS",
+            "color": "blue",
+            "bgColor": "blue-500/20",
+            "textColor": "blue-400"
+          }
+        ],
+        "stats": {
+          "language": "JavaScript 100%",
+          "type": "Game"
+        }
       }
     ]
   },
