@@ -85,7 +85,7 @@ function App() {
             <div className="md:hidden w-full mb-8 sm:mb-12">
               <div className="w-full relative">
                 <img
-                  src="/images/profile-half.png"
+                  src="/images/profile-half.webp"
                   alt="Kurob"
                   className="w-full h-auto object-cover"
                 />
@@ -108,7 +108,7 @@ function App() {
               {/* Photo - Left */}
               <div className="w-1/2">
                 <img
-                  src="/images/profile.png"
+                  src="/images/profile.webp"
                   alt="Kurob"
                   className="w-full h-auto object-cover rounded-lg"
                 />
