@@ -6,4 +6,5 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
+  cacheDir: '/tmp/vite-cache-kurob',
 })

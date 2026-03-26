@@ -58,18 +58,15 @@ function App() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#fafafa]/80 backdrop-blur-md border-b border-[#e5e5e5]/50">
         <div className="max-width-container mx-auto px-4 py-3 flex items-center justify-between">
-          {/* Mobile: Just OKURU.ID */}
           <div className="flex items-center">
             <span className="text-xs sm:text-sm font-semibold text-[#1a1a1a]">OKURU.ID</span>
           </div>
 
-          {/* Desktop: Full links */}
           <div className="hidden md:flex items-center gap-4 text-xs sm:text-sm text-[#6b7280]">
             <a href="#blog" className="hover:text-[#1a1a1a] transition-colors">Blog</a>
             <a href="#open-source" className="hover:text-[#1a1a1a] transition-colors">Open Source</a>
           </div>
 
-          {/* Mobile: Social Icons Only */}
           <div className="flex md:hidden items-center gap-3 text-[#6b7280]">
             <a href="#blog" className="hover:text-[#1a1a1a] transition-colors text-xs sm:text-sm">Blog</a>
             <a href="#open-source" className="hover:text-[#1a1a1a] transition-colors text-xs sm:text-sm">Open Source</a>
@@ -81,7 +78,7 @@ function App() {
         {/* Hero Section */}
         <section className="max-width-container mx-auto px-4 text-center mb-16 sm:mb-24">
           <div className="animate-fade-in">
-            {/* Mobile View - Full width photo with overlay text */}
+            {/* Mobile View */}
             <div className="md:hidden w-full mb-8 sm:mb-12">
               <div className="w-full relative">
                 <img
@@ -89,7 +86,6 @@ function App() {
                   alt="Kurob"
                   className="w-full h-auto object-cover"
                 />
-                {/* Overlay Text */}
                 <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md p-4 text-left">
                   <p className="text-xl sm:text-2xl font-semibold text-[#1a1a1a] mb-1">
                     {language === 'en' ? "Hi, I'm Kurob" : 'Halo, Saya Kurob'}
@@ -103,9 +99,8 @@ function App() {
               </div>
             </div>
 
-            {/* Desktop View - Side by side: Photo Left, Text Right */}
+            {/* Desktop View */}
             <div className="hidden md:flex flex-row items-start gap-8 mb-12">
-              {/* Photo - Left */}
               <div className="w-1/2">
                 <img
                   src="/images/profile.webp"
@@ -113,8 +108,6 @@ function App() {
                   className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
-
-              {/* Text - Right, left aligned, no background */}
               <div className="w-1/2 self-center">
                 <p className="text-xl lg:text-2xl font-semibold text-[#1a1a1a] mb-2">
                   {language === 'en' ? "Hi, I'm Kurob" : 'Halo, Saya Kurob'}
@@ -124,7 +117,6 @@ function App() {
                     ? "I'm from Indonesia with 10+ years of experience as a full-stack web developer. Currently at PT Krakatau IT and available for freelance projects. I build dynamic, responsive, and robust web solutions."
                     : "Saya dari Indonesia dengan 10+ tahun pengalaman sebagai full-stack web developer. Saat ini di PT Krakatau IT dan tersedia untuk proyek freelance. Saya membangun solusi web yang dinamis, responsif, dan tangguh."}
                 </h1>
-                {/* Contact Me Button */}
                 <a href="#contact">
                   <button className="btn-primary inline-flex items-center gap-2">
                     {language === 'en' ? 'Contact Me' : 'Hubungi Saya'}
@@ -136,10 +128,8 @@ function App() {
               </div>
             </div>
 
-
             {/* Language Toggle - Mobile Only */}
             <div className="mt-6 sm:mt-8 flex flex-col items-center gap-4 max-w-xl mx-auto md:hidden">
-              {/* Language Toggle */}
               <div className="flex items-center gap-1 bg-white rounded-full p-1 border border-[#e5e5e5]">
                 <button
                   onClick={() => setLanguage('en')}
@@ -158,8 +148,6 @@ function App() {
                   ID
                 </button>
               </div>
-
-              {/* Contact Button - Scroll to CTA */}
               <a href="#contact">
                 <button className="btn-primary inline-flex items-center gap-2">
                   {language === 'en' ? 'Contact Me' : 'Hubungi Saya'}
@@ -194,7 +182,7 @@ function App() {
           </div>
         </section>
 
-        {/* Client Logos - Auto scrolling marquee with card */}
+        {/* Client Logos */}
         <section className="max-width-container mx-auto px-4 mb-12 sm:mb-16">
           <div className="bg-white rounded-2xl sm:rounded-3xl py-6 sm:py-10 shadow-[0_4px_40px_rgba(0,0,0,0.06)] overflow-hidden">
             <div className="flex animate-marquee">
@@ -279,6 +267,8 @@ function App() {
             </Link>
           </div>
         </section>
+
+        {/* Open Source Section */}
         <section id="open-source" className="max-width-container mx-auto px-4 mb-12 sm:mb-16">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#1a1a1a] mb-8">
             {language === 'en' ? contentData.openSource.title.en : contentData.openSource.title.id}
@@ -309,17 +299,13 @@ function App() {
                         <IconStar size={14} /> {project.stats.stars}
                       </span>
                     )}
-                    {project.stats.language && (
-                      <span>{project.stats.language}</span>
-                    )}
+                    {project.stats.language && <span>{project.stats.language}</span>}
                     {project.stats.license && (
                       <span className="inline-flex items-center gap-1">
                         <IconLicense size={14} /> {project.stats.license}
                       </span>
                     )}
-                    {project.stats.type && (
-                      <span>{project.stats.type}</span>
-                    )}
+                    {project.stats.type && <span>{project.stats.type}</span>}
                   </div>
                 </div>
               </a>
@@ -334,6 +320,8 @@ function App() {
             </Link>
           </div>
         </section>
+
+        {/* CTA Section */}
         <section id="contact" className="max-width-container mx-auto px-4 mb-12 sm:mb-16">
           <div className="bg-[#1a1a1a] rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 text-center text-white">
             <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6 sm:mb-8">
