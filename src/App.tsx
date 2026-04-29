@@ -101,12 +101,10 @@ function App() {
           </div>
 
           <nav aria-label="Navigasi utama desktop" className="hidden md:flex items-center gap-4 text-xs sm:text-sm text-[#6b7280]">
-            <button onClick={() => document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1a1a1a] transition-colors cursor-pointer">Blog</button>
             <button onClick={() => document.getElementById('open-source')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1a1a1a] transition-colors cursor-pointer">Open Source</button>
           </nav>
 
           <nav aria-label="Navigasi utama mobile" className="flex md:hidden items-center gap-3 text-[#6b7280]">
-            <button onClick={() => document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1a1a1a] transition-colors text-xs sm:text-sm cursor-pointer">Blog</button>
             <button onClick={() => document.getElementById('open-source')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1a1a1a] transition-colors text-xs sm:text-sm cursor-pointer">Open Source</button>
           </nav>
         </div>
@@ -273,45 +271,6 @@ function App() {
                 </p>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* Blog Section */}
-        <section id="blog" className="max-width-container mx-auto px-4 mb-12 sm:mb-16">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#1a1a1a] mb-2">
-            {language === 'en' ? contentData.blog.title.en : contentData.blog.title.id}
-          </h2>
-          <p className="text-sm sm:text-base text-[#6b7280] mb-8">
-            {language === 'en' ? contentData.blog.subtitle.en : contentData.blog.subtitle.id}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {contentData.blog.posts.slice(0, 3).map((post, index) => (
-              <a key={index} href={post.url} className="group">
-                <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_4px_40px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_60px_rgba(0,0,0,0.1)] h-full flex flex-col">
-                  <span className="text-xs font-medium text-[#6b7280] mb-2">
-                    {language === 'en' ? post.category.en : post.category.id}
-                  </span>
-                  <h3 className="text-sm sm:text-base font-semibold text-[#1a1a1a] mb-2 group-hover:text-[#4b5563] transition-colors">
-                    {language === 'en' ? post.title.en : post.title.id}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#6b7280] leading-relaxed flex-grow line-clamp-3">
-                    {language === 'en' ? post.excerpt.en : post.excerpt.id}
-                  </p>
-                  <div className="flex items-center justify-between text-xs text-[#9ca3af] mt-4">
-                    <span>{post.date}</span>
-                    <span>{language === 'en' ? post.readTime.en : post.readTime.id}</span>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-medium text-[#6b7280] hover:text-[#1a1a1a] transition-colors">
-              {language === 'en' ? 'View All Posts' : 'Lihat Semua Artikel'}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
           </div>
         </section>
 
