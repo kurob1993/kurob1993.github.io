@@ -2,9 +2,27 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { IconBrandLinkedin, IconBrandThreads, IconBrandInstagram, IconBrandGithub, IconStar, IconLicense } from '@tabler/icons-react'
 import contentData from '../content.json'
+import { SITE_URL, useSeo } from './seo'
 
 function OpenSourcePage() {
   const language = useState<'en' | 'id'>('en')[0]
+
+  useSeo({
+    title: 'Open Source Projects Kurob | Fullstack Programmer Cilegon',
+    description: 'Kumpulan proyek open source Kurob yang menampilkan pengalaman fullstack programming, automation workflow, dan pengembangan aplikasi modern.',
+    canonicalPath: '/#/open-source',
+    keywords: 'open source kurob, fullstack programmer cilegon, github projects, automation workflow, web developer portfolio',
+    type: 'website',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Open Source Projects Kurob',
+      url: `${SITE_URL}/#/open-source`,
+      description: 'Halaman kumpulan proyek open source dan eksperimen engineering milik Kurob.',
+      inLanguage: ['id', 'en'],
+    },
+    lang: language,
+  })
 
   return (
     <div className="min-h-screen bg-[#fafafa]">
@@ -15,15 +33,15 @@ function OpenSourcePage() {
             <span className="text-xs sm:text-sm font-semibold text-[#1a1a1a]">OKURU.ID</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-4 text-xs sm:text-sm text-[#6b7280]">
+          <nav aria-label="Navigasi open source desktop" className="hidden md:flex items-center gap-4 text-xs sm:text-sm text-[#6b7280]">
             <Link to="/" className="hover:text-[#1a1a1a] transition-colors">Home</Link>
             <span className="text-[#1a1a1a] font-medium">Open Source</span>
-          </div>
+          </nav>
 
-          <div className="flex md:hidden items-center gap-3 text-[#6b7280]">
+          <nav aria-label="Navigasi open source mobile" className="flex md:hidden items-center gap-3 text-[#6b7280]">
             <Link to="/" className="hover:text-[#1a1a1a] transition-colors text-xs sm:text-sm">Home</Link>
             <span className="text-xs sm:text-sm text-[#1a1a1a] font-medium">Open Source</span>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -102,13 +120,13 @@ function OpenSourcePage() {
             © {new Date().getFullYear()} Okuru.id. All Rights Reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="https://linkedin.com/in/kurob1993" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors">
+            <a href="https://linkedin.com/in/kurob1993" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors" aria-label="LinkedIn Kurob">
               <IconBrandLinkedin size={20} />
             </a>
-            <a href="https://www.threads.com/@_okuru.id" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors">
+            <a href="https://www.threads.com/@_okuru.id" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors" aria-label="Threads Kurob">
               <IconBrandThreads size={20} />
             </a>
-            <a href="https://instagram.com/kurob1993" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors">
+            <a href="https://instagram.com/kurob1993" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors" aria-label="Instagram Kurob">
               <IconBrandInstagram size={20} />
             </a>
           </div>

@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node -e \"const fs=require('fs');const b='.index.html.dev';if(fs.existsSync(b)){fs.copyFileSync(b,'index.html');fs.unlinkSync(b);console.log('Restored dev index.html')}\" && vite",
     "build": "vite build && node scripts/deploy.mjs",
     "preview": "vite preview"
   },

@@ -5,6 +5,12 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'dist',
+    rollupOptions: {
+      onwarn(warning, warn) {
+        if (warning.message.includes('dynamic import cannot be analyzed')) return
+        warn(warning)
+      },
+    },
   },
   cacheDir: '/tmp/vite-cache-kurob',
 })

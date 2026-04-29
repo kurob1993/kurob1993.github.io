@@ -2,10 +2,28 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { IconBrandLinkedin, IconBrandThreads, IconBrandInstagram } from '@tabler/icons-react'
 import blogContent from '../blog-content.json'
+import { SITE_URL, useSeo } from './seo'
 
 function BlogPage() {
   const language = useState<'en' | 'id'>('en')[0]
   const [activeCategory, setActiveCategory] = useState('all')
+
+  useSeo({
+    title: 'Blog Kurob | Fullstack Programmer Cilegon dan Web Development Insights',
+    description: 'Blog Kurob berisi insight tentang Laravel, React, JavaScript, DevOps, dan praktik pengembangan web dari fullstack programmer Cilegon.',
+    canonicalPath: '/#/blog',
+    keywords: 'blog kurob, fullstack programmer cilegon, laravel tutorial, react performance, devops article',
+    type: 'website',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: 'Blog Kurob',
+      url: `${SITE_URL}/#/blog`,
+      description: 'Artikel dan insight tentang web development, Laravel, React, JavaScript, dan DevOps oleh Kurob.',
+      inLanguage: ['id', 'en'],
+    },
+    lang: language,
+  })
 
   const filteredPosts = activeCategory === 'all'
     ? blogContent.blog.posts
@@ -20,15 +38,15 @@ function BlogPage() {
             <span className="text-xs sm:text-sm font-semibold text-[#1a1a1a]">OKURU.ID</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-4 text-xs sm:text-sm text-[#6b7280]">
+          <nav aria-label="Navigasi blog desktop" className="hidden md:flex items-center gap-4 text-xs sm:text-sm text-[#6b7280]">
             <Link to="/" className="hover:text-[#1a1a1a] transition-colors">Home</Link>
             <span className="text-[#1a1a1a] font-medium">Blog</span>
-          </div>
+          </nav>
 
-          <div className="flex md:hidden items-center gap-3 text-[#6b7280]">
+          <nav aria-label="Navigasi blog mobile" className="flex md:hidden items-center gap-3 text-[#6b7280]">
             <Link to="/" className="hover:text-[#1a1a1a] transition-colors text-xs sm:text-sm">Home</Link>
             <span className="text-xs sm:text-sm text-[#1a1a1a] font-medium">Blog</span>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -101,13 +119,13 @@ function BlogPage() {
             {blogContent.footer.copyright.replace('{year}', new Date().getFullYear().toString())}
           </p>
           <div className="flex items-center gap-6">
-            <a href="https://linkedin.com/in/kurob1993" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors">
+            <a href="https://linkedin.com/in/kurob1993" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors" aria-label="LinkedIn Kurob">
               <IconBrandLinkedin size={20} />
             </a>
-            <a href="https://www.threads.com/@_okuru.id" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors">
+            <a href="https://www.threads.com/@_okuru.id" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors" aria-label="Threads Kurob">
               <IconBrandThreads size={20} />
             </a>
-            <a href="https://instagram.com/kurob1993" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors">
+            <a href="https://instagram.com/kurob1993" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors" aria-label="Instagram Kurob">
               <IconBrandInstagram size={20} />
             </a>
           </div>

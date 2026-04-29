@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, cpSync, rmSync, mkdirSync, readdirSync } from 'fs'
+import { readFileSync, writeFileSync, cpSync, rmSync, mkdirSync, readdirSync, existsSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -6,6 +6,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = resolve(__dirname, '..')
 const dist = resolve(root, 'dist')
 const publicDir = resolve(root, 'public')
+
+// Backup source index.html before overwriting
+const srcIndexHtml = resolve(root, 'index.html')
+const devIndexHtml = resolve(root, '.index.html.dev')
+try { cpSync(srcIndexHtml, devIndexHtml) } catch {}
 
 // Copy dist/index.html to root/index.html
 let indexHtml = readFileSync(resolve(dist, 'index.html'), 'utf-8')
@@ -52,5 +57,15 @@ try {
     cpSync(resolve(publicImages, file), resolve(rootImages, file))
   }
 } catch {}
+
+const rootFilesToSync = ['robots.txt', 'sitemap.xml']
+
+for (const file of rootFilesToSync) {
+  const source = resolve(root, file)
+
+  if (existsSync(source)) {
+    cpSync(source, resolve(dist, file))
+  }
+}
 
 console.log('Deploy files copied to root successfully.')

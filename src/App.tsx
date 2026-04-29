@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { IconMail, IconBrandGithub, IconBrandLinkedin, IconBrandInstagram, IconBrandWhatsapp, IconBrandThreads, IconLayoutGrid, IconDeviceDesktop, IconPalette, IconCode, IconBrandDocker, IconBrain, IconRoute, IconStar, IconLicense } from '@tabler/icons-react'
+import { IconMail, IconBrandGithub, IconBrandLinkedin, IconBrandInstagram, IconBrandWhatsapp, IconBrandThreads, IconCode, IconBrandDocker, IconBrain, IconRoute, IconStar, IconLicense } from '@tabler/icons-react'
 import contentData from '../content.json'
+import { SITE_URL, useSeo } from './seo'
 
 const clientLogos = [
   { name: 'Danareksa', logo: '/images/danareksa.png' },
@@ -41,6 +42,43 @@ function App() {
   const [language, setLanguage] = useState<'en' | 'id'>('en')
   const [copied, setCopied] = useState(false)
 
+  useSeo({
+    title: 'Kurob - Fullstack Programmer Cilegon | Web Developer Freelance',
+    description: 'Kurob adalah fullstack programmer Cilegon dan web developer freelance yang membangun aplikasi web, integrasi AI, workflow automation, dan infrastruktur DevOps modern.',
+    canonicalPath: '/',
+    keywords: 'kurob fullstack programmer cilegon, programmer cilegon, web developer freelance, fullstack developer indonesia, laravel developer, react developer',
+    schema: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Kurob',
+        url: SITE_URL,
+        image: `${SITE_URL}/images/profile-half.webp`,
+        jobTitle: 'Fullstack Programmer Cilegon',
+        description: 'Fullstack programmer Cilegon dan web developer freelance dari Indonesia dengan pengalaman membangun aplikasi web, AI integration, dan DevOps workflow.',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Cilegon',
+          addressCountry: 'ID',
+        },
+        sameAs: [
+          'https://github.com/kurob1993',
+          'https://linkedin.com/in/kurob1993',
+          'https://instagram.com/kurob1993',
+          'https://www.threads.com/@_okuru.id',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Okuru.id',
+        url: SITE_URL,
+        inLanguage: ['id', 'en'],
+      },
+    ],
+    lang: language,
+  })
+
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('kurob@okuru.id')
     setCopied(true)
@@ -62,38 +100,40 @@ function App() {
             <span className="text-xs sm:text-sm font-semibold text-[#1a1a1a]">OKURU.ID</span>
           </div>
 
-          <div className="hidden md:flex items-center gap-4 text-xs sm:text-sm text-[#6b7280]">
+          <nav aria-label="Navigasi utama desktop" className="hidden md:flex items-center gap-4 text-xs sm:text-sm text-[#6b7280]">
             <button onClick={() => document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1a1a1a] transition-colors cursor-pointer">Blog</button>
             <button onClick={() => document.getElementById('open-source')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1a1a1a] transition-colors cursor-pointer">Open Source</button>
-          </div>
+          </nav>
 
-          <div className="flex md:hidden items-center gap-3 text-[#6b7280]">
+          <nav aria-label="Navigasi utama mobile" className="flex md:hidden items-center gap-3 text-[#6b7280]">
             <button onClick={() => document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1a1a1a] transition-colors text-xs sm:text-sm cursor-pointer">Blog</button>
             <button onClick={() => document.getElementById('open-source')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1a1a1a] transition-colors text-xs sm:text-sm cursor-pointer">Open Source</button>
-          </div>
+          </nav>
         </div>
       </header>
 
       <main className="pt-24 sm:pt-32 pb-12 sm:pb-16">
         {/* Hero Section */}
-        <section className="max-width-container mx-auto px-4 text-center mb-16 sm:mb-24">
+        <section className="max-width-container mx-auto px-4 text-center mb-16 sm:mb-24" aria-labelledby="hero-title">
           <div className="animate-fade-in">
             {/* Mobile View */}
             <div className="md:hidden w-full mb-8 sm:mb-12">
               <div className="w-full relative">
                 <img
                   src="/images/profile-half.webp"
-                  alt="Kurob"
+                  alt="Kurob, fullstack programmer Cilegon"
                   className="w-full h-auto object-cover"
+                  fetchPriority="high"
+                  decoding="async"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md p-4 text-left">
                   <p className="text-xl sm:text-2xl font-semibold text-[#1a1a1a] mb-1">
                     {language === 'en' ? "Hi, I'm Kurob" : 'Halo, Saya Kurob'}
                   </p>
-                  <h1 className="text-base font-medium text-[#6b7280] leading-tight">
+                  <h1 id="hero-title" className="text-base font-medium text-[#6b7280] leading-tight">
                     {language === 'en'
-                      ? "I'm from Indonesia with 10+ years of experience as a full-stack web developer. Currently at PT Krakatau IT and available for freelance projects. I build dynamic, responsive, and robust web solutions."
-                      : "Saya dari Indonesia dengan 10+ tahun pengalaman sebagai full-stack web developer. Saat ini di PT Krakatau IT dan tersedia untuk proyek freelance. Saya membangun solusi web yang dinamis, responsif, dan tangguh."}
+                      ? 'Kurob is a fullstack programmer from Cilegon with 10+ years of experience building robust Laravel, React, DevOps, and automation solutions for modern businesses.'
+                      : 'Kurob adalah fullstack programmer dari Cilegon dengan pengalaman 10+ tahun membangun solusi Laravel, React, DevOps, dan automation untuk kebutuhan bisnis modern.'}
                   </h1>
                 </div>
               </div>
@@ -104,19 +144,26 @@ function App() {
               <div className="w-1/2">
                 <img
                   src="/images/profile.webp"
-                  alt="Kurob"
+                  alt="Kurob, fullstack programmer Cilegon"
                   className="w-full h-auto object-cover rounded-lg"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
               <div className="w-1/2 self-center">
                 <p className="text-xl lg:text-2xl font-semibold text-[#1a1a1a] mb-2">
                   {language === 'en' ? "Hi, I'm Kurob" : 'Halo, Saya Kurob'}
                 </p>
-                <h1 className="text-lg lg:text-xl font-medium text-[#6b7280] leading-tight mb-6">
+                <p className="text-lg lg:text-xl font-medium text-[#6b7280] leading-tight mb-6">
                   {language === 'en'
-                    ? "I'm from Indonesia with 10+ years of experience as a full-stack web developer. Currently at PT Krakatau IT and available for freelance projects. I build dynamic, responsive, and robust web solutions."
-                    : "Saya dari Indonesia dengan 10+ tahun pengalaman sebagai full-stack web developer. Saat ini di PT Krakatau IT dan tersedia untuk proyek freelance. Saya membangun solusi web yang dinamis, responsif, dan tangguh."}
-                </h1>
+                    ? 'Kurob is a fullstack programmer from Cilegon with 10+ years of experience building robust Laravel, React, DevOps, and automation solutions for modern businesses.'
+                    : 'Kurob adalah fullstack programmer dari Cilegon dengan pengalaman 10+ tahun membangun solusi Laravel, React, DevOps, dan automation untuk kebutuhan bisnis modern.'}
+                </p>
+                <p className="text-sm lg:text-base text-[#4b5563] leading-relaxed mb-6">
+                  {language === 'en'
+                    ? 'Available for freelance website development, internal tools, and scalable web application projects across Indonesia.'
+                    : 'Tersedia untuk proyek freelance website development, internal tools, dan aplikasi web yang scalable di Indonesia.'}
+                </p>
                 <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="btn-primary inline-flex items-center gap-2">
                   {language === 'en' ? 'Contact Me' : 'Hubungi Saya'}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,6 +238,8 @@ function App() {
                     src={client.logo}
                     alt={client.name}
                     className="h-8 sm:h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
@@ -201,7 +250,9 @@ function App() {
         {/* Collaborate Text */}
         <section className="max-width-container mx-auto px-4 mb-12 sm:mb-16 text-center">
           <p className="text-base sm:text-xl md:text-2xl text-[#6b7280]">
-            Collaborate with brands and agencies to create impactful results.
+            {language === 'en'
+              ? 'Collaborate with a fullstack programmer from Cilegon to build impactful web products, automation, and digital experiences.'
+              : 'Berkolaborasi dengan fullstack programmer dari Cilegon untuk membangun produk web, automation, dan pengalaman digital yang berdampak.'}
           </p>
         </section>
 
@@ -336,15 +387,13 @@ function App() {
                 <IconMail size={18} />
                 Contact Me
               </button>
-              <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer">
-                <button className="bg-transparent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm border border-white/30 hover:border-white transition-colors inline-flex items-center gap-2 justify-center">
-                  <IconBrandWhatsapp size={18} />
-                  WhatsApp
-                </button>
-              </a>
-            </div>
-          </div>
-        </section>
+               <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="bg-transparent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm border border-white/30 hover:border-white transition-colors inline-flex items-center gap-2 justify-center" aria-label="Hubungi Kurob melalui WhatsApp">
+                 <IconBrandWhatsapp size={18} />
+                 WhatsApp
+               </a>
+             </div>
+           </div>
+         </section>
       </main>
 
       {/* Footer */}
@@ -354,13 +403,13 @@ function App() {
             © {new Date().getFullYear()} All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="https://linkedin.com/in/kurob1993" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors">
+            <a href="https://linkedin.com/in/kurob1993" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors" aria-label="LinkedIn Kurob">
               <IconBrandLinkedin size={20} />
             </a>
-            <a href="https://www.threads.com/@_okuru.id" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors">
+            <a href="https://www.threads.com/@_okuru.id" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors" aria-label="Threads Kurob">
               <IconBrandThreads size={20} />
             </a>
-            <a href="https://instagram.com/kurob1993" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors">
+            <a href="https://instagram.com/kurob1993" target="_blank" rel="noopener noreferrer" className="text-[#6b7280] hover:text-[#1a1a1a] transition-colors" aria-label="Instagram Kurob">
               <IconBrandInstagram size={20} />
             </a>
           </div>

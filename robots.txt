@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://kurob1993.github.io/sitemap.xml
