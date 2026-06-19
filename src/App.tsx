@@ -346,7 +346,7 @@ function App() {
                 <IconMail size={18} />
                 Contact Me
               </button>
-               <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="bg-transparent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm border border-white/30 hover:border-white transition-colors inline-flex items-center gap-2 justify-center" aria-label="Hubungi Kurob melalui WhatsApp">
+               <a href="https://wa.me/628999702143" target="_blank" rel="noopener noreferrer" className="bg-transparent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm border border-white/30 hover:border-white transition-colors inline-flex items-center gap-2 justify-center" aria-label="Hubungi Kurob melalui WhatsApp">
                  <IconBrandWhatsapp size={18} />
                  WhatsApp
                </a>

@@ -7,11 +7,6 @@ const root = resolve(__dirname, '..')
 const dist = resolve(root, 'dist')
 const publicDir = resolve(root, 'public')
 
-// Backup source index.html before overwriting
-const srcIndexHtml = resolve(root, 'index.html')
-const devIndexHtml = resolve(root, '.index.html.dev')
-try { cpSync(srcIndexHtml, devIndexHtml) } catch {}
-
 // Copy dist/index.html to root/index.html
 let indexHtml = readFileSync(resolve(dist, 'index.html'), 'utf-8')
 indexHtml = indexHtml.replace(/profile-half\.png/g, 'profile-half.webp')
@@ -69,3 +64,10 @@ for (const file of rootFilesToSync) {
 }
 
 console.log('Deploy files copied to root successfully.')
+
+// Restore source index.html entry so next dev/build resolves /src/main.tsx
+const devIndexHtml = resolve(root, '.index.html.dev')
+if (existsSync(devIndexHtml)) {
+  cpSync(devIndexHtml, resolve(root, 'index.html'))
+  console.log('Restored source index.html from .index.html.dev')
+}
